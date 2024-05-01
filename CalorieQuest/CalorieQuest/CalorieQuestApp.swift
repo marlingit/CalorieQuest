@@ -14,6 +14,7 @@ struct CalorieQuestApp: App {
     init (){
         
         createDatabase()
+        createScanFocusRegionImage()
     }
     
     @AppStorage("darkMode") private var darkMode = false
