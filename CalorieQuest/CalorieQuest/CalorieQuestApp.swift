@@ -2,29 +2,24 @@
 //  CalorieQuestApp.swift
 //  CalorieQuest
 //
-//  Created by Marlin on 4/25/24.
+//  Created by Vijay Vadi on 4/29/24.
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct CalorieQuestApp: App {
     
-//    init (){
-//        
-//        createDatabase()
-//        createScanFocusRegionImage()
-//    }
+    init() {
+        createScanFocusRegionImage()
+    }
     
-    @AppStorage("darkMode") private var darkMode = false
-
+    @AppStorage("authenticationComplete") var authenticationComplete: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .preferredColorScheme(darkMode ? .dark : .light)
-                .modelContainer(for: [Day.self, Tracked.self, Meal.self, Food.self,  Nutrient.self, Video.self], isUndoEnabled: true)
+            AuthManager(authenticationComplete: $authenticationComplete)
+                .preferredColorScheme(.light)
         }
-        
     }
 }
