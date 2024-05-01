@@ -11,11 +11,11 @@ import SwiftData
 @main
 struct CalorieQuestApp: App {
     
-    init (){
-        
-        createDatabase()
-        createScanFocusRegionImage()
-    }
+//    init (){
+//        
+//        createDatabase()
+//        createScanFocusRegionImage()
+//    }
     
     @AppStorage("darkMode") private var darkMode = false
 

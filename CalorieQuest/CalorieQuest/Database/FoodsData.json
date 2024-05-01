@@ -6,7 +6,7 @@
 				"category": "Breakfast", "time": "08:00:00", "foods":
 				[
 					{
-						"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+						"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
 						[
 							{"name": "calories", "amount": 20.0, "unit": "cal"},
 							{"name": "total fat", "amount": 0.5, "unit": "mg"},
@@ -16,7 +16,7 @@
 						]
 					},
 					{
-						"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+						"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
 						[
 							{"name": "calories", "amount": 20.0, "unit": "cal"},
 							{"name": "total fat", "amount": 0.5, "unit": "mg"},
@@ -31,7 +31,7 @@
 				"category": "Lunch", "time": "13:00:00", "foods":
 				[
 					{
-						"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+						"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
 						[
 							{"name": "calories", "amount": 20.0, "unit": "cal"},
 							{"name": "total fat", "amount": 0.5, "unit": "mg"},
@@ -41,7 +41,7 @@
 						]
 					},
 					{
-						"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+						"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
 						[
 							{"name": "calories", "amount": 20.0, "unit": "cal"},
 							{"name": "total fat", "amount": 0.5, "unit": "mg"},
@@ -61,7 +61,7 @@
 				"category": "Breakfast", "time": "08:00:00", "foods":
 				[
 					{
-						"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+						"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
 						[
 							{"name": "calories", "amount": 20.0, "unit": "cal"},
 							{"name": "total fat", "amount": 0.5, "unit": "mg"},
@@ -71,7 +71,7 @@
 						]
 					},
 					{
-						"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+						"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
 						[
 							{"name": "calories", "amount": 20.0, "unit": "cal"},
 							{"name": "total fat", "amount": 0.5, "unit": "mg"},
@@ -86,7 +86,7 @@
 				"category": "Lunch", "time": "13:00:00", "foods":
 				[
 					{
-						"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+						"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
 						[
 							{"name": "calories", "amount": 20.0, "unit": "cal"},
 							{"name": "total fat", "amount": 0.5, "unit": "mg"},
@@ -96,7 +96,7 @@
 						]
 					},
 					{
-						"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+						"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
 						[
 							{"name": "calories", "amount": 20.0, "unit": "cal"},
 							{"name": "total fat", "amount": 0.5, "unit": "mg"},

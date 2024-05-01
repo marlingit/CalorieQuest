@@ -4,7 +4,7 @@
 		"foods":
 		[
 			{
-				"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+				"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
 				[
 					{"name": "calories", "amount": 20.0, "unit": "cal"},
 					{"name": "total fat", "amount": 0.5, "unit": "mg"},
@@ -14,7 +14,7 @@
 				]
 			},
 			{
-				"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+				"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
 				[
 					{"name": "calories", "amount": 20.0, "unit": "cal"},
 					{"name": "total fat", "amount": 0.5, "unit": "mg"},
@@ -30,7 +30,7 @@
 		"foods":
 		[
 			{
-				"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+				"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
 				[
 					{"name": "calories", "amount": 20.0, "unit": "cal"},
 					{"name": "total fat", "amount": 0.5, "unit": "mg"},
@@ -40,7 +40,7 @@
 				]
 			},
 			{
-				"name": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
+				"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
 				[
 					{"name": "calories", "amount": 20.0, "unit": "cal"},
 					{"name": "total fat", "amount": 0.5, "unit": "mg"},

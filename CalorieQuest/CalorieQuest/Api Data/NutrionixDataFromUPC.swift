@@ -11,7 +11,7 @@ import Foundation
 fileprivate let appID  = "48aac022"
 fileprivate let appKey = "04a63c0b6935fe6acce5d2ab330b4e1d"
 
-fileprivate var foodItem = FoodStruct(name: "", imageUrl: "", servingSize: 0, servingUnit: "", nutrients: [])
+fileprivate var foodItem = FoodStruct(name: "", itemId: "", imageUrl: "", servingSize: 0, servingUnit: "", nutrients: [])
 
 fileprivate var previousUPC = ""
 
@@ -24,7 +24,7 @@ public func getNutritionDataFromUPC(upc: String) {
     }
     
     // Reset the foodItem to an empty instance
-    foodItem = FoodStruct(name: "", imageUrl: "", servingSize: 0, servingUnit: "", nutrients: [])
+    foodItem = FoodStruct(name: "", itemId: "", imageUrl: "", servingSize: 0, servingUnit: "", nutrients: [])
     
     // Construct the API query URL
     var apiQueryUrlStruct: URL?
@@ -113,6 +113,15 @@ public func getNutritionDataFromUPC(upc: String) {
                 return
             }
             
+            // Extract item id
+            var food_id = ""
+            if let itemId = foodsJsonObject["nix_brand_id"] as? String {
+                food_id = itemId
+            } else {
+                semaphore.signal()
+                return
+            }
+            
             // Extract the photo URL
             var photo_url = ""
             if let photoJsonObject = foodsJsonObject["photo"] as? [String: Any],
@@ -185,7 +194,7 @@ public func getNutritionDataFromUPC(upc: String) {
             }
             
             // Create the foodItem instance with the extracted data
-            foodItem = FoodStruct(name: food_name, imageUrl: photo_url, servingSize: servingSize, servingUnit: servingUnit, nutrients: nutrients)
+            foodItem = FoodStruct(name: food_name, itemId: food_id, imageUrl: photo_url, servingSize: servingSize, servingUnit: servingUnit, nutrients: nutrients)
             
         } catch {
             semaphore.signal()

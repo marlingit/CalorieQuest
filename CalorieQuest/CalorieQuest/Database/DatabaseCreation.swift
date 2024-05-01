@@ -110,9 +110,9 @@ public func createDatabase() {
 
             for aFood in aTracked.foods {
                 
-                let foodName = aFood.name
+                let foodId = aFood.itemId
                 let foodPredicate = #Predicate<Food> {
-                    $0.name == foodName
+                    $0.itemId == foodId
                 }
                 
                 let foodFetechDescriptor = FetchDescriptor<Food>(
@@ -130,6 +130,7 @@ public func createDatabase() {
                         
                         thisFood = Food(
                             name: aFood.name,
+                            itemId: aFood.itemId,
                             imageUrl: aFood.imageUrl,
                             servingSize: aFood.servingSize,
                             servingUnit: aFood.servingUnit,
@@ -203,9 +204,9 @@ public func createDatabase() {
         
         for aFood in aMealStruct.foods {
             
-            let foodName = aFood.name
+            let foodId = aFood.itemId
             let foodPredicate = #Predicate<Food> {
-                $0.name == foodName
+                $0.itemId == foodId
             }
             
             let foodFetechDescriptor = FetchDescriptor<Food>(
@@ -223,6 +224,7 @@ public func createDatabase() {
                     
                     thisFood = Food(
                         name: aFood.name,
+                        itemId: aFood.itemId,
                         imageUrl: aFood.imageUrl,
                         servingSize: aFood.servingSize,
                         servingUnit: aFood.servingUnit,

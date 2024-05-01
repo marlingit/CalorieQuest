@@ -29,6 +29,7 @@ struct MealStruct: Decodable, Encodable {
 struct FoodStruct: Decodable, Encodable {
     
     var name: String
+    var itemId: String
     var imageUrl: String
     var servingSize: Double
     var servingUnit: String
