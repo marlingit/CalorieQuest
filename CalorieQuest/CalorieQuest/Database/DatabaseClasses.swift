@@ -43,7 +43,7 @@ final class Meal {
     
     @Relationship(deleteRule: .nullify) var foods: [Food]?
     
-    init(name: String, foods: [Food]? = nil) {
+    init(name: String, foods: [Food]) {
         self.name = name
         self.foods = foods
     }
@@ -57,7 +57,7 @@ final class Food {
     var servingSize: Double
     var servingUnit: String
     
-    @Relationship(deleteRule: .cascade) var nutrients: [Nutrient]?
+    @Relationship(deleteRule: .nullify) var nutrients: [Nutrient]?
     
     init(name: String, imageUrl: String, servingSize: Double, servingUnit: String, nutrients: [Nutrient]) {
         self.name = name

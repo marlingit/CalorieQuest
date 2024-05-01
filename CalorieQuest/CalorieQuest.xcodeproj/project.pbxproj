@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,10 +11,14 @@
 		8C2154492BE1DF1400D55304 /* FoodDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2154482BE1DF1400D55304 /* FoodDataStructs.swift */; };
 		8C21544B2BE1E4E600D55304 /* DatabaseCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C21544A2BE1E4E600D55304 /* DatabaseCreation.swift */; };
 		8C21544D2BE1EC9C00D55304 /* VideoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C21544C2BE1EC9C00D55304 /* VideoStruct.swift */; };
+		8C2154512BE1F0E000D55304 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2154502BE1F0DF00D55304 /* UtilityFunctions.swift */; };
 		8C52297A2BDB2608008FA34F /* CalorieQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5229792BDB2608008FA34F /* CalorieQuestApp.swift */; };
 		8C52297C2BDB2608008FA34F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C52297B2BDB2608008FA34F /* ContentView.swift */; };
 		8C5229802BDB260A008FA34F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C52297F2BDB260A008FA34F /* Assets.xcassets */; };
 		8C5229832BDB260A008FA34F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C5229822BDB260A008FA34F /* Preview Assets.xcassets */; };
+		8CE87D0A2BE21E4A00168A44 /* FoodsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CE87D092BE21E4A00168A44 /* FoodsData.json */; };
+		8CE87D0C2BE21E5900168A44 /* MealsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CE87D0B2BE21E5900168A44 /* MealsData.json */; };
+		8CE87D0E2BE21E6000168A44 /* VideosData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CE87D0D2BE21E6000168A44 /* VideosData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +27,15 @@
 		8C21544A2BE1E4E600D55304 /* DatabaseCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCreation.swift; sourceTree = "<group>"; };
 		8C21544C2BE1EC9C00D55304 /* VideoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStruct.swift; sourceTree = "<group>"; };
 		8C21544E2BE1EE5700D55304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8C2154502BE1F0DF00D55304 /* UtilityFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		8C5229762BDB2608008FA34F /* CalorieQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5229792BDB2608008FA34F /* CalorieQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieQuestApp.swift; sourceTree = "<group>"; };
 		8C52297B2BDB2608008FA34F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8C52297F2BDB260A008FA34F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C5229822BDB260A008FA34F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8CE87D092BE21E4A00168A44 /* FoodsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FoodsData.json; sourceTree = "<group>"; };
+		8CE87D0B2BE21E5900168A44 /* MealsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MealsData.json; sourceTree = "<group>"; };
+		8CE87D0D2BE21E6000168A44 /* VideosData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VideosData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,12 +52,23 @@
 		8C21543B2BE1D9D700D55304 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				8CE87D092BE21E4A00168A44 /* FoodsData.json */,
+				8CE87D0B2BE21E5900168A44 /* MealsData.json */,
+				8CE87D0D2BE21E6000168A44 /* VideosData.json */,
 				8C2154482BE1DF1400D55304 /* FoodDataStructs.swift */,
 				8C21544C2BE1EC9C00D55304 /* VideoStruct.swift */,
 				8C2154462BE1DC4A00D55304 /* DatabaseClasses.swift */,
 				8C21544A2BE1E4E600D55304 /* DatabaseCreation.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		8C21544F2BE1F0B200D55304 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C2154502BE1F0DF00D55304 /* UtilityFunctions.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8C52296D2BDB2608008FA34F = {
@@ -74,6 +93,7 @@
 				8C5229792BDB2608008FA34F /* CalorieQuestApp.swift */,
 				8C52297B2BDB2608008FA34F /* ContentView.swift */,
 				8C21543B2BE1D9D700D55304 /* Database */,
+				8C21544F2BE1F0B200D55304 /* Supporting Files */,
 				8C52297F2BDB260A008FA34F /* Assets.xcassets */,
 				8C21544E2BE1EE5700D55304 /* Info.plist */,
 				8C5229812BDB260A008FA34F /* Preview Content */,
@@ -126,7 +146,7 @@
 				};
 			};
 			buildConfigurationList = 8C5229712BDB2608008FA34F /* Build configuration list for PBXProject "CalorieQuest" */;
-			compatibilityVersion = "Xcode 15.0";
+			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -148,7 +168,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CE87D0A2BE21E4A00168A44 /* FoodsData.json in Resources */,
 				8C5229832BDB260A008FA34F /* Preview Assets.xcassets in Resources */,
+				8CE87D0C2BE21E5900168A44 /* MealsData.json in Resources */,
+				8CE87D0E2BE21E6000168A44 /* VideosData.json in Resources */,
 				8C5229802BDB260A008FA34F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +188,7 @@
 				8C2154472BE1DC4A00D55304 /* DatabaseClasses.swift in Sources */,
 				8C2154492BE1DF1400D55304 /* FoodDataStructs.swift in Sources */,
 				8C21544D2BE1EC9C00D55304 /* VideoStruct.swift in Sources */,
+				8C2154512BE1F0E000D55304 /* UtilityFunctions.swift in Sources */,
 				8C52297A2BDB2608008FA34F /* CalorieQuestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
