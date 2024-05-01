@@ -130,12 +130,12 @@
 			children = (
 				D237DC872BE2F40600675576 /* CalorieQuestApp.swift */,
 				D237DC862BE2F40600675576 /* ContentView.swift */,
-				D237DC962BE2F42D00675576 /* Authentication */,
 				8C21543B2BE1D9D700D55304 /* Database */,
 				D237DC742BE1F30B00675576 /* Api Data */,
 				D237DC772BE1F53800675576 /* Barcode Scanning */,
 				D237DC8C2BE2F42B00675576 /* Fonts */,
 				D237DC712BE1F26800675576 /* Supporting Files */,
+				D237DC962BE2F42D00675576 /* Authentication */,
 				D237DCAD2BE2F73800675576 /* Views */,
 				D237DC8D2BE2F42C00675576 /* backgroundvideo.mp4 */,
 				8C52297F2BDB260A008FA34F /* Assets.xcassets */,
