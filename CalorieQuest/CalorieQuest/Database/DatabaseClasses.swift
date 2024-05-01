@@ -43,7 +43,7 @@ final class Meal {
     
     @Relationship(deleteRule: .nullify) var foods: [Food]?
     
-    init(name: String, foods: [Food]?) {
+    init(name: String, foods: [Food]? = nil) {
         self.name = name
         self.foods = foods
     }
@@ -53,15 +53,15 @@ final class Meal {
 final class Food {
     
     var name: String
-    var imageFileName: String
+    var imageUrl: String
     var servingSize: Double
     var servingUnit: String
     
-    @Relationship(deleteRule: .nullify) var nutrients: [Nutrient]?
+    @Relationship(deleteRule: .cascade) var nutrients: [Nutrient]?
     
-    init(name: String, imageFileName: String, servingSize: Double, servingUnit: String, nutrients: [Nutrient]?) {
+    init(name: String, imageUrl: String, servingSize: Double, servingUnit: String, nutrients: [Nutrient]) {
         self.name = name
-        self.imageFileName = imageFileName
+        self.imageUrl = imageUrl
         self.servingSize = servingSize
         self.servingUnit = servingUnit
         self.nutrients = nutrients
@@ -75,10 +75,30 @@ final class Nutrient {
     var amount: Double
     var unit: String
     
-    init(name: String, amount: Double, unit: String) {
+    @Relationship(deleteRule: .nullify) var foods: [Food]?
+    
+    init(name: String, amount: Double, unit: String, foods: [Food]? = nil) {
         self.name = name
         self.amount = amount
         self.unit = unit
+        self.foods = foods
     }
 }
 
+@Model
+final class Video {
+    
+    var id: Int
+    var title: String
+    var youtubeId: String
+    var releaseDate: String
+    var duration: String
+    
+    init(id: Int, title: String, youtubeId: String, releaseDate: String, duration: String) {
+        self.id = id
+        self.title = title
+        self.youtubeId = youtubeId
+        self.releaseDate = releaseDate
+        self.duration = duration
+    }
+}

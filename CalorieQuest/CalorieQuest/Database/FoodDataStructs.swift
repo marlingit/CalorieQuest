@@ -1,5 +1,5 @@
 //
-//  DataStructs.swift
+//  FoodDataStructs.swift
 //  CalorieQuest
 //
 //  Created by Marlin on 4/30/24.
@@ -23,13 +23,12 @@ struct TrackedStruct: Decodable, Encodable {
 struct MealStruct: Decodable, Encodable {
     
     var name: String
-    var foods: [FoodStruct]
 }
 
 struct FoodStruct: Decodable, Encodable {
     
     var name: String
-    var imageFileName: String
+    var imageUrl: String
     var servingSize: Double
     var servingUnit: String
     var nutrients: [NutrientStruct]
@@ -41,3 +40,5 @@ struct NutrientStruct: Decodable, Encodable {
     var amount: Double
     var unit: String
 }
+
+
