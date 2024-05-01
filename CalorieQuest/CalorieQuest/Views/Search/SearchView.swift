@@ -35,11 +35,13 @@ struct SearchView: View {
             ScrollView {
                 VStack(spacing: 0) {
                     Spacer()
-                    Image("")
-                        .resizable()
-                        .frame(width: 150, height: 150)
-                        .mask(Circle())
-                        .background(Color.black.opacity(0.25).mask(Circle()))
+                    Image(selectedOption == "Database" ? "DatabaseSearchImage" :
+                            selectedOption == "API" ? "ApiSearchImage" :
+                            "VideoSearchImage")
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .mask(Circle())
+                    .background(Color.black.opacity(0.25).mask(Circle()))
                     Picker("Choose an option", selection: $selectedOption) {
                         ForEach(options, id: \.self) { option in
                             Text(option)
