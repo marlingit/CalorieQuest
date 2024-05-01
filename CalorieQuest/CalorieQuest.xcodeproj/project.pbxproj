@@ -3,22 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C2154472BE1DC4A00D55304 /* DatabaseClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2154462BE1DC4A00D55304 /* DatabaseClasses.swift */; };
+		8C2154492BE1DF1400D55304 /* FoodDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2154482BE1DF1400D55304 /* FoodDataStructs.swift */; };
+		8C21544B2BE1E4E600D55304 /* DatabaseCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C21544A2BE1E4E600D55304 /* DatabaseCreation.swift */; };
+		8C21544D2BE1EC9C00D55304 /* VideoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C21544C2BE1EC9C00D55304 /* VideoStruct.swift */; };
 		8C52297A2BDB2608008FA34F /* CalorieQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5229792BDB2608008FA34F /* CalorieQuestApp.swift */; };
 		8C52297C2BDB2608008FA34F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C52297B2BDB2608008FA34F /* ContentView.swift */; };
-		8C52297E2BDB2608008FA34F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C52297D2BDB2608008FA34F /* Item.swift */; };
 		8C5229802BDB260A008FA34F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C52297F2BDB260A008FA34F /* Assets.xcassets */; };
 		8C5229832BDB260A008FA34F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C5229822BDB260A008FA34F /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C2154462BE1DC4A00D55304 /* DatabaseClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClasses.swift; sourceTree = "<group>"; };
+		8C2154482BE1DF1400D55304 /* FoodDataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDataStructs.swift; sourceTree = "<group>"; };
+		8C21544A2BE1E4E600D55304 /* DatabaseCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCreation.swift; sourceTree = "<group>"; };
+		8C21544C2BE1EC9C00D55304 /* VideoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStruct.swift; sourceTree = "<group>"; };
+		8C21544E2BE1EE5700D55304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8C5229762BDB2608008FA34F /* CalorieQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5229792BDB2608008FA34F /* CalorieQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieQuestApp.swift; sourceTree = "<group>"; };
 		8C52297B2BDB2608008FA34F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		8C52297D2BDB2608008FA34F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8C52297F2BDB260A008FA34F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C5229822BDB260A008FA34F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -34,6 +41,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C21543B2BE1D9D700D55304 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8C2154482BE1DF1400D55304 /* FoodDataStructs.swift */,
+				8C21544C2BE1EC9C00D55304 /* VideoStruct.swift */,
+				8C2154462BE1DC4A00D55304 /* DatabaseClasses.swift */,
+				8C21544A2BE1E4E600D55304 /* DatabaseCreation.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		8C52296D2BDB2608008FA34F = {
 			isa = PBXGroup;
 			children = (
@@ -55,8 +73,9 @@
 			children = (
 				8C5229792BDB2608008FA34F /* CalorieQuestApp.swift */,
 				8C52297B2BDB2608008FA34F /* ContentView.swift */,
-				8C52297D2BDB2608008FA34F /* Item.swift */,
+				8C21543B2BE1D9D700D55304 /* Database */,
 				8C52297F2BDB260A008FA34F /* Assets.xcassets */,
+				8C21544E2BE1EE5700D55304 /* Info.plist */,
 				8C5229812BDB260A008FA34F /* Preview Content */,
 			);
 			path = CalorieQuest;
@@ -99,6 +118,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
+				ORGANIZATIONNAME = "Marlin Spears";
 				TargetAttributes = {
 					8C5229752BDB2608008FA34F = {
 						CreatedOnToolsVersion = 15.2;
@@ -106,7 +126,7 @@
 				};
 			};
 			buildConfigurationList = 8C5229712BDB2608008FA34F /* Build configuration list for PBXProject "CalorieQuest" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -141,7 +161,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C52297C2BDB2608008FA34F /* ContentView.swift in Sources */,
-				8C52297E2BDB2608008FA34F /* Item.swift in Sources */,
+				8C21544B2BE1E4E600D55304 /* DatabaseCreation.swift in Sources */,
+				8C2154472BE1DC4A00D55304 /* DatabaseClasses.swift in Sources */,
+				8C2154492BE1DF1400D55304 /* FoodDataStructs.swift in Sources */,
+				8C21544D2BE1EC9C00D55304 /* VideoStruct.swift in Sources */,
 				8C52297A2BDB2608008FA34F /* CalorieQuestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,9 +302,9 @@
 				DEVELOPMENT_TEAM = C3K999XS7Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalorieQuest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -308,9 +331,9 @@
 				DEVELOPMENT_TEAM = C3K999XS7Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalorieQuest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
