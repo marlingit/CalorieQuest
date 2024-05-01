@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C2154472BE1DC4A00D55304 /* DatabaseClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2154462BE1DC4A00D55304 /* DatabaseClasses.swift */; };
+		8C2154492BE1DF1400D55304 /* DataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2154482BE1DF1400D55304 /* DataStructs.swift */; };
 		8C52297A2BDB2608008FA34F /* CalorieQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5229792BDB2608008FA34F /* CalorieQuestApp.swift */; };
 		8C52297C2BDB2608008FA34F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C52297B2BDB2608008FA34F /* ContentView.swift */; };
 		8C52297E2BDB2608008FA34F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C52297D2BDB2608008FA34F /* Item.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C2154462BE1DC4A00D55304 /* DatabaseClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClasses.swift; sourceTree = "<group>"; };
+		8C2154482BE1DF1400D55304 /* DataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructs.swift; sourceTree = "<group>"; };
 		8C5229762BDB2608008FA34F /* CalorieQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5229792BDB2608008FA34F /* CalorieQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieQuestApp.swift; sourceTree = "<group>"; };
 		8C52297B2BDB2608008FA34F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +38,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C21543B2BE1D9D700D55304 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8C2154482BE1DF1400D55304 /* DataStructs.swift */,
+				8C2154462BE1DC4A00D55304 /* DatabaseClasses.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		8C52296D2BDB2608008FA34F = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				8C5229792BDB2608008FA34F /* CalorieQuestApp.swift */,
+				8C21543B2BE1D9D700D55304 /* Database */,
 				8C52297B2BDB2608008FA34F /* ContentView.swift */,
 				8C52297D2BDB2608008FA34F /* Item.swift */,
 				8C52297F2BDB260A008FA34F /* Assets.xcassets */,
@@ -141,6 +155,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C52297C2BDB2608008FA34F /* ContentView.swift in Sources */,
+				8C2154472BE1DC4A00D55304 /* DatabaseClasses.swift in Sources */,
+				8C2154492BE1DF1400D55304 /* DataStructs.swift in Sources */,
 				8C52297E2BDB2608008FA34F /* Item.swift in Sources */,
 				8C52297A2BDB2608008FA34F /* CalorieQuestApp.swift in Sources */,
 			);
