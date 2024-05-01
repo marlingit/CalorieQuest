@@ -23,6 +23,7 @@ struct TrackedStruct: Decodable, Encodable {
 struct MealStruct: Decodable, Encodable {
     
     var name: String
+    var foods: [FoodStruct]
 }
 
 struct FoodStruct: Decodable, Encodable {
