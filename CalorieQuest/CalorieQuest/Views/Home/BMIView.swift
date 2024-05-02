@@ -185,6 +185,21 @@ struct BMIResultView: View {
         }
     }
     
+    var bmiImage: String {
+        switch bmiCategory {
+        case "Underweight":
+            return "UnderweightBmiImage"
+        case "Healthy":
+            return "HealthyBmiImage"
+        case "Overweight":
+            return "OverweightBmiImage"
+        case "Obese":
+            return "ObeseBmiImage"
+        default:
+            return "ImageUnavailable"
+        }
+    }
+    
     var body: some View {
         VStack {
             Text("BMI Result")
@@ -198,6 +213,12 @@ struct BMIResultView: View {
             
             Text("Category: \(bmiCategory)")
                 .font(.title2)
+                .padding()
+            
+            Image(bmiImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 200)
                 .padding()
         }
     }
