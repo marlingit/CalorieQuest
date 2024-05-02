@@ -34,31 +34,31 @@ struct CreateAccountView: View {
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     /*
-    private func makeAttributedString() -> AttributedString {
-            var text = AttributedString("By creating an account, you agree to our\nPrivacy Policy and Terms of Service.")
-            
-            if let privacyRange = text.range(of: "Privacy Policy") {
-                text[privacyRange].foregroundColor = .blue
-                text[privacyRange].link = URL(string: "https://www.quickparksolutions.com")
-            }
-            
-            if let termsRange = text.range(of: "Terms of Service") {
-                text[termsRange].foregroundColor = .blue
-                text[termsRange].link = URL(string: "https://www.quickparksolutions.com")
-            }
-            
-            return text
-        }
-    
-    private func makeAttributedString2() -> AttributedString {
-            var text = AttributedString("Already have an Account?\nLogin Instead")
-            
-            if let privacyRange = text.range(of: "Login Instead") {
-                text[privacyRange].foregroundColor = .blue
-            }
-            
-            return text
-        }
+     private func makeAttributedString() -> AttributedString {
+     var text = AttributedString("By creating an account, you agree to our\nPrivacy Policy and Terms of Service.")
+     
+     if let privacyRange = text.range(of: "Privacy Policy") {
+     text[privacyRange].foregroundColor = .blue
+     text[privacyRange].link = URL(string: "https://www.quickparksolutions.com")
+     }
+     
+     if let termsRange = text.range(of: "Terms of Service") {
+     text[termsRange].foregroundColor = .blue
+     text[termsRange].link = URL(string: "https://www.quickparksolutions.com")
+     }
+     
+     return text
+     }
+     
+     private func makeAttributedString2() -> AttributedString {
+     var text = AttributedString("Already have an Account?\nLogin Instead")
+     
+     if let privacyRange = text.range(of: "Login Instead") {
+     text[privacyRange].foregroundColor = .blue
+     }
+     
+     return text
+     }
      */
 }
 
@@ -107,12 +107,12 @@ struct OnboardingOne: View {
                             }
                         }
                     })
-                        .foregroundStyle(.black)
-                        .tint(.black)
-                        .font(.system(size: 22))
-                        .fontWeight(.bold)
-                        .padding(.leading, 2)
-                        .padding(.trailing, 12)
+                    .foregroundStyle(.black)
+                    .tint(.black)
+                    .font(.system(size: 22))
+                    .fontWeight(.bold)
+                    .padding(.leading, 2)
+                    .padding(.trailing, 12)
                     
                     Rectangle()
                         .foregroundColor(.black)
@@ -135,12 +135,12 @@ struct OnboardingOne: View {
                             }
                         }
                     })
-                        .foregroundStyle(.black)
-                        .tint(.black)
-                        .font(.system(size: 22))
-                        .fontWeight(.bold)
-                        .padding(.leading, 2)
-                        .padding(.trailing, 12)
+                    .foregroundStyle(.black)
+                    .tint(.black)
+                    .font(.system(size: 22))
+                    .fontWeight(.bold)
+                    .padding(.leading, 2)
+                    .padding(.trailing, 12)
                     
                     Rectangle()
                         .foregroundColor(.black)
@@ -163,7 +163,7 @@ struct OnboardingOne: View {
                             UserDefaults.standard.set(lastname, forKey: "lastname")
                             
                             withAnimation() {
-                               // authenticationComplete = true
+                                // authenticationComplete = true
                                 pagenumber = 2
                             }
                         }
@@ -175,7 +175,7 @@ struct OnboardingOne: View {
                             .frame(width: 150, height: 50)
                             .background(firstname.isEmpty || lastname.isEmpty ? Color.black.opacity(0.5) : Color.black, in: RoundedRectangle(cornerRadius: 50))
                     }.padding(.top, 24)
-                      //  .disabled(firstname.isEmpty || lastname.isEmpty ? true : false)
+                    //  .disabled(firstname.isEmpty || lastname.isEmpty ? true : false)
                     
                     Spacer()
                 }
@@ -189,43 +189,45 @@ struct OnboardingOne: View {
                 }
                 
                 /*
-                HStack(spacing: 0) {
-                    Text(makeAttributedString())
-                        .foregroundStyle(.black)
-                        .font(.system(size: 12))
-                        .fontWeight(.bold)
-                        .lineSpacing(4)
-                    
-                    Spacer()
-                }
-                .padding(.top, 18)
-                */
+                 HStack(spacing: 0) {
+                 Text(makeAttributedString())
+                 .foregroundStyle(.black)
+                 .font(.system(size: 12))
+                 .fontWeight(.bold)
+                 .lineSpacing(4)
+                 
+                 Spacer()
+                 }
+                 .padding(.top, 18)
+                 */
                 Spacer()
             }.padding(.leading, 22)
                 .padding(.top, 48)
                 .padding(.trailing, 74)
             /*
-            Text(makeAttributedString2())
-                .foregroundStyle(.black)
-                .multilineTextAlignment(.center)
-                .font(.system(size: 16))
-                .fontWeight(.bold)
-                .lineSpacing(4)
-                .frame(maxWidth: .infinity)
-                .padding(.bottom, 12)
-            */
+             Text(makeAttributedString2())
+             .foregroundStyle(.black)
+             .multilineTextAlignment(.center)
+             .font(.system(size: 16))
+             .fontWeight(.bold)
+             .lineSpacing(4)
+             .frame(maxWidth: .infinity)
+             .padding(.bottom, 12)
+             */
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
-
 struct OnboardingTwo: View {
     
     @Binding var pagenumber: Int
     
     @AppStorage("firstname") var firstName: String = ""
     
-    @State private var height: String = ""
-    @State private var heightTextFieldEditingActive = false
+    @State private var heightFeet: String = ""
+    @State private var heightFeetTextFieldEditingActive = false
+    
+    @State private var heightInches: String = ""
+    @State private var heightInchesTextFieldEditingActive = false
     
     @State private var weight: String = ""
     @State private var weightTextFieldEditingActive = false
@@ -264,33 +266,63 @@ struct OnboardingTwo: View {
             }.padding(.leading, 22)
             
             VStack(spacing: 0) {
-                VStack(alignment: .leading, spacing: 4) {
-                    TextField("Height", text: $height, onEditingChanged: { (editingChanged) in
-                        if editingChanged {
-                            withAnimation {
-                                heightTextFieldEditingActive = true
-                                missingFieldAlertVisible = false
+                HStack(spacing: 16) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        TextField("Feet", text: $heightFeet, onEditingChanged: { (editingChanged) in
+                            if editingChanged {
+                                withAnimation {
+                                    heightFeetTextFieldEditingActive = true
+                                    missingFieldAlertVisible = false
+                                }
+                            } else {
+                                withAnimation {
+                                    heightFeetTextFieldEditingActive = false
+                                    missingFieldAlertVisible = false
+                                }
                             }
-                        } else {
-                            withAnimation {
-                                heightTextFieldEditingActive = false
-                                missingFieldAlertVisible = false
-                            }
-                        }
-                    })
+                        })
                         .foregroundStyle(.black)
                         .tint(.black)
                         .font(.system(size: 22))
                         .fontWeight(.bold)
                         .padding(.leading, 2)
                         .padding(.trailing, 12)
+                        
+                        Rectangle()
+                            .foregroundColor(.black)
+                            .opacity(heightFeetTextFieldEditingActive ? 1 : 0.5)
+                            .frame(height: 4)
+                            .frame(maxWidth: .infinity)
+                    }.frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Rectangle()
-                        .foregroundColor(.black)
-                        .opacity(heightTextFieldEditingActive ? 1 : 0.5)
-                        .frame(height: 4)
-                        .frame(maxWidth: .infinity)
-                }.frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading, spacing: 4) {
+                        TextField("Inches", text: $heightInches, onEditingChanged: { (editingChanged) in
+                            if editingChanged {
+                                withAnimation {
+                                    heightInchesTextFieldEditingActive = true
+                                    missingFieldAlertVisible = false
+                                }
+                            } else {
+                                withAnimation {
+                                    heightInchesTextFieldEditingActive = false
+                                    missingFieldAlertVisible = false
+                                }
+                            }
+                        })
+                        .foregroundStyle(.black)
+                        .tint(.black)
+                        .font(.system(size: 22))
+                        .fontWeight(.bold)
+                        .padding(.leading, 2)
+                        .padding(.trailing, 12)
+                        
+                        Rectangle()
+                            .foregroundColor(.black)
+                            .opacity(heightInchesTextFieldEditingActive ? 1 : 0.5)
+                            .frame(height: 4)
+                            .frame(maxWidth: .infinity)
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                }
                 
                 VStack(alignment: .leading, spacing: 4) {
                     TextField("Weight", text: $weight, onEditingChanged: { (editingChanged) in
@@ -306,12 +338,12 @@ struct OnboardingTwo: View {
                             }
                         }
                     })
-                        .foregroundStyle(.black)
-                        .tint(.black)
-                        .font(.system(size: 22))
-                        .fontWeight(.bold)
-                        .padding(.leading, 2)
-                        .padding(.trailing, 12)
+                    .foregroundStyle(.black)
+                    .tint(.black)
+                    .font(.system(size: 22))
+                    .fontWeight(.bold)
+                    .padding(.leading, 2)
+                    .padding(.trailing, 12)
                     
                     Rectangle()
                         .foregroundColor(.black)
@@ -322,19 +354,17 @@ struct OnboardingTwo: View {
                     .padding(.top, 28)
                 
                 HStack(spacing: 0) {
-                    
                     Button {
                         missingFieldAlertVisible = false
                         
-                        if height.isEmpty || weight.isEmpty {
+                        if heightFeet.isEmpty || heightInches.isEmpty || weight.isEmpty {
                             missingFieldAlertVisible = true
                         } else {
-                            
-                            UserDefaults.standard.set(height, forKey: "height")
+                            let heightInches = Int(heightFeet)! * 12 + Int(heightInches)!
+                            UserDefaults.standard.set(heightInches, forKey: "height")
                             UserDefaults.standard.set(weight, forKey: "weight")
                             
                             withAnimation() {
-                               // authenticationComplete = true
                                 pagenumber = 3
                             }
                         }
@@ -344,9 +374,8 @@ struct OnboardingTwo: View {
                             .font(.system(size: 18))
                             .fontWeight(.bold)
                             .frame(width: 150, height: 50)
-                            .background(height.isEmpty || weight.isEmpty ? Color.black.opacity(0.5) : Color.black, in: RoundedRectangle(cornerRadius: 50))
+                            .background(heightFeet.isEmpty || heightInches.isEmpty || weight.isEmpty ? Color.black.opacity(0.5) : Color.black, in: RoundedRectangle(cornerRadius: 50))
                     }.padding(.top, 24)
-                      //  .disabled(firstname.isEmpty || lastname.isEmpty ? true : false)
                     
                     Spacer()
                 }
@@ -359,32 +388,10 @@ struct OnboardingTwo: View {
                         .padding(.top, 12)
                 }
                 
-                /*
-                HStack(spacing: 0) {
-                    Text(makeAttributedString())
-                        .foregroundStyle(.black)
-                        .font(.system(size: 12))
-                        .fontWeight(.bold)
-                        .lineSpacing(4)
-                    
-                    Spacer()
-                }
-                .padding(.top, 18)
-                */
                 Spacer()
             }.padding(.leading, 22)
                 .padding(.top, 48)
                 .padding(.trailing, 74)
-            /*
-            Text(makeAttributedString2())
-                .foregroundStyle(.black)
-                .multilineTextAlignment(.center)
-                .font(.system(size: 16))
-                .fontWeight(.bold)
-                .lineSpacing(4)
-                .frame(maxWidth: .infinity)
-                .padding(.bottom, 12)
-            */
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
@@ -443,37 +450,37 @@ struct OnboardingThree: View {
                             .frame(width: 150, height: 50)
                             .background(Color.black, in: RoundedRectangle(cornerRadius: 50))
                     }.padding(.top, 24)
-                //  .disabled(firstname.isEmpty || lastname.isEmpty ? true : false)
-                
-                Spacer()
-                }
-                
-                /*
-                HStack(spacing: 0) {
-                    Text(makeAttributedString())
-                        .foregroundStyle(.black)
-                        .font(.system(size: 12))
-                        .fontWeight(.bold)
-                        .lineSpacing(4)
+                    //  .disabled(firstname.isEmpty || lastname.isEmpty ? true : false)
                     
                     Spacer()
                 }
-                .padding(.top, 18)
-                */
+                
+                /*
+                 HStack(spacing: 0) {
+                 Text(makeAttributedString())
+                 .foregroundStyle(.black)
+                 .font(.system(size: 12))
+                 .fontWeight(.bold)
+                 .lineSpacing(4)
+                 
+                 Spacer()
+                 }
+                 .padding(.top, 18)
+                 */
                 Spacer()
             }.padding(.leading, 22)
                 .padding(.top, 48)
                 .padding(.trailing, 74)
             /*
-            Text(makeAttributedString2())
-                .foregroundStyle(.black)
-                .multilineTextAlignment(.center)
-                .font(.system(size: 16))
-                .fontWeight(.bold)
-                .lineSpacing(4)
-                .frame(maxWidth: .infinity)
-                .padding(.bottom, 12)
-            */
+             Text(makeAttributedString2())
+             .foregroundStyle(.black)
+             .multilineTextAlignment(.center)
+             .font(.system(size: 16))
+             .fontWeight(.bold)
+             .lineSpacing(4)
+             .frame(maxWidth: .infinity)
+             .padding(.bottom, 12)
+             */
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

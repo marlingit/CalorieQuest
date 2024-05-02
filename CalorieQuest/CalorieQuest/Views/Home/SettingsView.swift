@@ -111,11 +111,12 @@ struct SettingsView: View {
                     .padding(.top, 24)
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("Height")
+                        Text("Height (inches")
                             .font(.system(size: 18))
                             .fontWeight(.heavy)
                         
-                        TextField("Height", text: $height)
+                        
+                        TextField("Height in inches", text: $height)
                             .font(.system(size: 18))
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
@@ -125,7 +126,7 @@ struct SettingsView: View {
                     .padding(.top, 24)
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("Weight")
+                        Text("Weight (pounds)")
                             .font(.system(size: 18))
                             .fontWeight(.heavy)
                         
@@ -167,13 +168,13 @@ struct SettingsView: View {
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.top, 12)
             
-            .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Changes Saved"),
-                    message: Text("Your settings have been successfully saved."),
-                    dismissButton: .default(Text("OK"))
-                )
-            }
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Changes Saved"),
+                        message: Text("Your settings have been successfully saved."),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
             
             Spacer()
         }.frame(maxWidth: .infinity, maxHeight: .infinity)

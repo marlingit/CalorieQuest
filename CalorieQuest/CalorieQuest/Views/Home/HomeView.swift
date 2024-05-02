@@ -175,13 +175,21 @@ struct HomeView: View {
                                 .font(.custom("Urbanist", size: 18))
                                 .fontWeight(.heavy)
                             
-                            //                            Button(action: {
-                            //                                currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) ?? currentDate
-                            //                            }) {
-                            //                                Image(systemName: "arrow.right")
-                            //                                    .font(.system(size: 24))
-                            //                                    .fontWeight(.heavy)
-                            //                            }
+                            HStack {
+                                if !Calendar.current.isDateInToday(currentDate) {
+                                    Button(action: {
+                                        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) ?? currentDate
+                                        if tomorrow <= Date() {
+                                            currentDate = tomorrow
+                                        }
+                                    }) {
+                                        Image(systemName: "arrow.right")
+                                            .font(.system(size: 24))
+                                            .fontWeight(.heavy)
+                                    }
+                                }
+                            }
+                            .frame(width: 24)
                         }
                         .padding()
                         

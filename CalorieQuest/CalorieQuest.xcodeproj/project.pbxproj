@@ -44,7 +44,6 @@
 		D237DCA02BE2F42D00675576 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC922BE2F42D00675576 /* AuthManager.swift */; };
 		D237DCA12BE2F42D00675576 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC932BE2F42D00675576 /* CreateAccountView.swift */; };
 		D237DCA22BE2F42D00675576 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC942BE2F42D00675576 /* LoginView.swift */; };
-		D237DCA32BE2F42D00675576 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC952BE2F42D00675576 /* SignInView.swift */; };
 		D237DCA42BE2F42D00675576 /* BMIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC972BE2F42D00675576 /* BMIView.swift */; };
 		D237DCA52BE2F42D00675576 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC982BE2F42D00675576 /* FoodItem.swift */; };
 		D237DCA92BE2F43800675576 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCA62BE2F43800675576 /* RoundedCorners.swift */; };
@@ -103,7 +102,6 @@
 		D237DC922BE2F42D00675576 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		D237DC932BE2F42D00675576 /* CreateAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		D237DC942BE2F42D00675576 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		D237DC952BE2F42D00675576 /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		D237DC972BE2F42D00675576 /* BMIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMIView.swift; sourceTree = "<group>"; };
 		D237DC982BE2F42D00675576 /* FoodItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 		D237DCA62BE2F43800675576 /* RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
@@ -250,7 +248,6 @@
 				D237DC922BE2F42D00675576 /* AuthManager.swift */,
 				D237DC932BE2F42D00675576 /* CreateAccountView.swift */,
 				D237DC942BE2F42D00675576 /* LoginView.swift */,
-				D237DC952BE2F42D00675576 /* SignInView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -436,7 +433,6 @@
 				8C2154492BE1DF1400D55304 /* FoodDataStructs.swift in Sources */,
 				D237DCC72BE3F21500675576 /* ApiResultsDetails.swift in Sources */,
 				D237DCA52BE2F42D00675576 /* FoodItem.swift in Sources */,
-				D237DCA32BE2F42D00675576 /* SignInView.swift in Sources */,
 				D237DCC52BE3F20A00675576 /* ApiResultsItem.swift in Sources */,
 				D237DC792BE1F54C00675576 /* ScanFocusRegion.swift in Sources */,
 				D237DCD02BE4159800675576 /* VideoDatabaseSearch.swift in Sources */,
