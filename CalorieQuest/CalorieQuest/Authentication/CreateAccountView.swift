@@ -427,12 +427,6 @@ struct OnboardingThree: View {
                     .padding(.top, 24)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text("Here's what to do.")
-                    .foregroundStyle(.black)
-                    .font(.system(size: 22))
-                    .fontWeight(.bold)
-                    .padding(.top, 8)
-                    .frame(maxWidth: .infinity, alignment: .leading)
             }.padding(.leading, 22)
             
             VStack(spacing: 0) {
