@@ -16,6 +16,9 @@ struct StarredView: View {
     @State private var toBeDeleted: IndexSet?
     @State private var showConfirmation = false
     
+    @Binding var detailsViewSelected: Int
+    @Binding var sheetActive: Bool
+    
     @State var isEditing = false
     
     var body: some View {
@@ -61,7 +64,7 @@ struct StarredView: View {
             NavigationStack {
                 List {
                     ForEach(listOfAllFoodsInDatabase) { aFood in
-                        NavigationLink(destination: FoodDetails(food: aFood)) {
+                        NavigationLink(destination: EmptyView()) {
                             FoodItem(food: aFood)
                                 .alert(isPresented: $showConfirmation) {
                                     Alert(title: Text("Delete Confirmation"),
@@ -85,6 +88,7 @@ struct StarredView: View {
                                 )
                             }   // End of alert
                         }
+                        
                     }
                     .onDelete(perform: delete)
                 }

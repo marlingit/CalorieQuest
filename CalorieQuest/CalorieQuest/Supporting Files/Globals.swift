@@ -11,4 +11,4 @@ import Foundation
 var alertTitle = ""
 var alertMessage = ""
 
-
+var food = Food(name: "", itemId: "", imageUrl: "", servingSize: 0.0, servingUnit: "", nutrients: [Nutrient]())
