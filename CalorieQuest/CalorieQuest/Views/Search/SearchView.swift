@@ -116,47 +116,17 @@ struct SearchView: View {
                                 .font(.system(size: 18))
                                 .fontWeight(.bold)
                                 .foregroundStyle(.white)
-                    }.padding(.top, 24)
-                    
-                    
-                    if selectedOption == "Videos DB" {
-                        Button {
-                            showVideosList = true
-                        } label: {
-                            Text("Show Videos List")
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
                                 .padding()
                                 .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                                 .padding(.top, 8)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.top, 24)
+                    }
+                }
+            }
                         
-                        NavigationLink(destination: SearchResultsList(), isActive: $showSearchResults) {
-                            Button {
-                                if selectedOption == "API" {
-                                    searchApi()
-                                    
-                                    if foodArray.isEmpty {
-                                        alertTitle = "No Results"
-                                        alertMessage = "No food items found for the given search query."
-                                        showAlert = true
-                                    } else {
-                                        showSearchResults = true
-                                    }
-                                }
-                            } label: {
-                                Text("Search")
-                                    .font(.system(size: 18))
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.white)
-                                    .padding()
-                                    .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
-            }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(.leading, 24)
-                .padding(.trailing, 24)
+                        
         }
         .sheet(isPresented: $showVideosList) {
             VideosList()
@@ -184,33 +154,11 @@ struct SearchView: View {
         // Public function conductDatabaseSearch is given in DatabaseSearch.swift
         conductDatabaseSearch()
     }
-    
-    /*
-     ---------------------------
-     MARK: Input Data Validation
-     ---------------------------
-     */
-    func inputDataValidated() -> Bool {
-        // Remove spaces, if any, at the beginning and at the end of the entered search query string
-        let queryTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
-        if queryTrimmed.isEmpty {
-            return false
-        }
-        return true
-        let queryTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        
-        searchQuery = queryTrimmed
-        
-
-        // Public function conductDatabaseSearch is given in DatabaseSearch.swift
-        conductDatabaseSearch()
-    }
                         
- func searchApi() {
-                            let foodNameTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
-                            getNutritionDataFromName(name: foodNameTrimmed)
-                        }
+     func searchApi() {
+        let foodNameTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        getNutritionDataFromName(name: foodNameTrimmed)
+    }
     
     /*
      ---------------------------
