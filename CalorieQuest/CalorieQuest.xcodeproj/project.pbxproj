@@ -59,6 +59,8 @@
 		D237DCCA2BE3F28E00675576 /* DatabaseResultsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCC92BE3F28E00675576 /* DatabaseResultsList.swift */; };
 		D237DCCC2BE3F29800675576 /* DatabaseResultsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCCB2BE3F29800675576 /* DatabaseResultsItem.swift */; };
 		D237DCCE2BE3F2A300675576 /* DatabaseResultsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCCD2BE3F2A300675576 /* DatabaseResultsDetails.swift */; };
+		D237DCD02BE4159800675576 /* VideoDatabaseSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCCF2BE4159800675576 /* VideoDatabaseSearch.swift */; };
+		D237DCD22BE4177C00675576 /* VideoResultsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCD12BE4177C00675576 /* VideoResultsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +118,8 @@
 		D237DCC92BE3F28E00675576 /* DatabaseResultsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseResultsList.swift; sourceTree = "<group>"; };
 		D237DCCB2BE3F29800675576 /* DatabaseResultsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseResultsItem.swift; sourceTree = "<group>"; };
 		D237DCCD2BE3F2A300675576 /* DatabaseResultsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseResultsDetails.swift; sourceTree = "<group>"; };
+		D237DCCF2BE4159800675576 /* VideoDatabaseSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDatabaseSearch.swift; sourceTree = "<group>"; };
+		D237DCD12BE4177C00675576 /* VideoResultsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResultsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +304,8 @@
 			children = (
 				D237DCB22BE3308400675576 /* VideosList.swift */,
 				D237DCB42BE3309200675576 /* VideosItem.swift */,
+				D237DCCF2BE4159800675576 /* VideoDatabaseSearch.swift */,
+				D237DCD12BE4177C00675576 /* VideoResultsList.swift */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -433,11 +439,13 @@
 				D237DCA32BE2F42D00675576 /* SignInView.swift in Sources */,
 				D237DCC52BE3F20A00675576 /* ApiResultsItem.swift in Sources */,
 				D237DC792BE1F54C00675576 /* ScanFocusRegion.swift in Sources */,
+				D237DCD02BE4159800675576 /* VideoDatabaseSearch.swift in Sources */,
 				D237DCCA2BE3F28E00675576 /* DatabaseResultsList.swift in Sources */,
 				8CE87D1D2BE333D400168A44 /* AddManuallyView.swift in Sources */,
 				8CE87D212BE334D600168A44 /* ContentView.swift in Sources */,
 				8C21544D2BE1EC9C00D55304 /* VideoStruct.swift in Sources */,
 				8C2154512BE1F0E000D55304 /* UtilityFunctions.swift in Sources */,
+				D237DCD22BE4177C00675576 /* VideoResultsList.swift in Sources */,
 				8CE87D122BE2E70200168A44 /* NutritionixNutrientsData.swift in Sources */,
 				8CE87D1B2BE3277000168A44 /* FoodDetails.swift in Sources */,
 				D237DC732BE1F27B00675576 /* Globals.swift in Sources */,

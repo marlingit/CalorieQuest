@@ -11,7 +11,6 @@ import SwiftData
 
 var databaseSearchResults = [Food]()
 var searchQuery = ""
-var searchCategory = ""
 
 public func conductDatabaseSearch() {
     var modelContainer: ModelContainer

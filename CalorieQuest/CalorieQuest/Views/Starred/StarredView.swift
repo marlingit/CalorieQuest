@@ -39,7 +39,7 @@ struct StarredView: View {
                 
                 Spacer()
                 
-                Text("Favorite")
+                Text("Favorite Foods")
                     .foregroundStyle(.black)
                     .font(.custom("Urbanist", size: 24))
                     .fontWeight(.heavy)

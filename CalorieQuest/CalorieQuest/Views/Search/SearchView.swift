@@ -19,7 +19,8 @@ struct SearchView: View {
     @State private var showSearchResults = false
     @State private var showApiSearchResults = false
     @State private var showDatabaseSearchResults = false
-    
+    @State private var showVideoSearchResults = false
+
     @State private var showVideosList = false
     
     @State private var showAlertMessage = false
@@ -98,9 +99,20 @@ struct SearchView: View {
                                 if foodArray.isEmpty {
                                     alertTitle = "No Results"
                                     alertMessage = "No food items found for the given search query \(searchQuery)."
-                                    showAlertMessage = true // Change this to showAlertMessage
+                                    showAlertMessage = true
                                 } else {
                                     showApiSearchResults = true
+                                }
+                            }
+                            if selectedOption == "Videos DB" {
+                                searchVideoDB()
+                                if videoSearchResults.isEmpty {
+                                    alertTitle = "No Results"
+                                    alertMessage = "No food items found for the given search query \(searchQuery)."
+                                    showAlertMessage = true
+                                }
+                                else {
+                                    showVideoSearchResults = true
                                 }
                             }
                         } else {
@@ -143,6 +155,9 @@ struct SearchView: View {
         .sheet(isPresented: $showDatabaseSearchResults) {
             DatabaseResultsList(foodArray: databaseSearchResults)
         }
+        .sheet(isPresented: $showVideoSearchResults) {
+            VideoResultsList(videoArray: videoSearchResults)
+        }
         .alert(alertTitle, isPresented: $showAlertMessage, actions: {
             Button("OK") {}
         }, message: {
@@ -182,6 +197,12 @@ struct SearchView: View {
             return false
         }
         return true
+    }
+    
+    func searchVideoDB() {
+        let queryTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        videoSearchQuery = queryTrimmed
+        conductVideoDatabaseSearch()
     }
 }
 
