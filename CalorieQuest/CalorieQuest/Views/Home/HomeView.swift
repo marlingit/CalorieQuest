@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
+    
+    @Environment(\.modelContext) private var modelContext
+    @Query(FetchDescriptor<Day>(sortBy: [SortDescriptor(\Day.date, order: .forward)])) private var listOfAllDaysInDatabase: [Day]
     
     @AppStorage("firstname") var firstName: String = "Vijay"
     
