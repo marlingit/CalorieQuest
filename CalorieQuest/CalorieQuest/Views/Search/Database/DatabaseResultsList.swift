@@ -19,6 +19,7 @@ struct DatabaseResultsList: View {
                 }
             }
         }
+        .navigationTitle("Search Results")
     }
 }
 

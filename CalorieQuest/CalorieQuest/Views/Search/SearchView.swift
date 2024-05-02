@@ -23,6 +23,8 @@ struct SearchView: View {
     @State private var showVideosList = false
     
     @State private var showAlertMessage = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationStack {
@@ -82,13 +84,12 @@ struct SearchView: View {
                         if inputDataValidated() {
                             if selectedOption == "Database" {
                                 searchDB()
-                                if databaseSearchResults.isEmpty {
+                                if databaseSearchResults.count == 0 {
                                     alertTitle = "No Results"
-                                    alertMessage = "No food items found for the given search query."
-                                }
-                                else {
+                                    alertMessage = "No food items found for the given search query \(searchQuery)."
+                                    showAlertMessage = true // Show the alert
+                                } else {
                                     showDatabaseSearchResults = true
-                                    
                                 }
                             }
                             if selectedOption == "API" {
@@ -96,8 +97,8 @@ struct SearchView: View {
                                 
                                 if foodArray.isEmpty {
                                     alertTitle = "No Results"
-                                    alertMessage = "No food items found for the given search query."
-                                    showAlert = true
+                                    alertMessage = "No food items found for the given search query \(searchQuery)."
+                                    showAlertMessage = true // Change this to showAlertMessage
                                 } else {
                                     showApiSearchResults = true
                                 }
@@ -116,7 +117,6 @@ struct SearchView: View {
                             .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
                     }.padding(.top, 24)
                     
-                    
                     if selectedOption == "Videos DB" {
                         Button {
                             showVideosList = true
@@ -134,8 +134,6 @@ struct SearchView: View {
                     }
                 }
             }
-            
-            
         }
         .sheet(isPresented: $showVideosList) {
             VideosList()
@@ -143,7 +141,7 @@ struct SearchView: View {
         .sheet(isPresented: $showApiSearchResults) {
             ApiResultsList(foodArray: foodArray)
         }
-        .sheet(isPresented: $showApiSearchResults) {
+        .sheet(isPresented: $showDatabaseSearchResults) {
             DatabaseResultsList(foodArray: databaseSearchResults)
         }
         .alert(alertTitle, isPresented: $showAlertMessage, actions: {
@@ -162,9 +160,7 @@ struct SearchView: View {
         // Remove spaces, if any, at the beginning and at the end of the entered search query string
         let queryTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        
         searchQuery = queryTrimmed
-        
         
         // Public function conductDatabaseSearch is given in DatabaseSearch.swift
         conductDatabaseSearch()
