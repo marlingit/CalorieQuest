@@ -11,7 +11,24 @@ import SwiftUI
 struct DatabaseResultsItem: View {
     let food: Food
     var body: some View {
-        Text(food.name)
+        HStack {
+            getImageFromUrl(url: food.imageUrl, defaultFilename: "ImageUnavailable")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100.0, height: 75.0)
+            
+            VStack(alignment: .leading) {
+                Text(food.name.components(separatedBy: " ")
+                    .map { $0.capitalized }
+                    .joined(separator: " "))
+                Text(String(food.servingSize))
+                Text(food.servingUnit.components(separatedBy: " ")
+                    .map { $0.capitalized }
+                    .joined(separator: " "))
+            }
+            .font(.system(size: 16))
+        }
+        
     }
 }
 
