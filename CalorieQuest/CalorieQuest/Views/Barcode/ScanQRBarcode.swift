@@ -58,24 +58,15 @@ struct ScanQRBarcode: View {
     
     var qrBarcodeProcessingResults: some View {
         
-        if barcode.hasPrefix("http") {
+        getNutritionDataFromUPC(upc: barcode)
+        
+        if foodItem.name.isEmpty {
             return AnyView(
-                Link(destination: URL(string: barcode)!) {
-                    VStack {
-                        HStack {
-                            Image(systemName: "globe")
-                                .imageScale(.medium)
-                                .font(Font.title.weight(.regular))
-                            Text("Show Website For")
-                        }
-                        .padding(.bottom, 20)
-                        Text(barcode)
-                    }
-                }
+                NotFound(message: "No Nutrition Data Returned!\n\nThe Nutritionix API did not return data for the item with UPC \(barcode)!")
             )
         }
-        return AnyView(
-            NotFound(message: "Invalid QR Barcode!\n\nThe barcode scanned with UPC \(barcode) is not a QR barcode!")
-        )
+        
+        return AnyView(EmptyView())
+        
     }
 }

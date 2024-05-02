@@ -11,7 +11,7 @@ import Foundation
 fileprivate let appID  = "48aac022"
 fileprivate let appKey = "04a63c0b6935fe6acce5d2ab330b4e1d"
 
-fileprivate var foodItem = FoodStruct(name: "", itemId: "", imageUrl: "", servingSize: 0, servingUnit: "", nutrients: [])
+var foodItem = FoodStruct(name: "", itemId: "", imageUrl: "", servingSize: 0, servingUnit: "", nutrients: [])
 
 fileprivate var previousUPC = ""
 
