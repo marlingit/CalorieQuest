@@ -93,11 +93,11 @@ struct HomeView: View {
                         }
                     }.frame(height: 100)
                         .frame(maxWidth: .infinity)
-                    .background(
-                        RoundedRectangle(cornerRadius: 24)
-                            .stroke(Color.black.opacity(0.25), lineWidth: 4)
-                    )
-                    .padding(.top, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 24)
+                                .stroke(Color.black.opacity(0.25), lineWidth: 4)
+                        )
+                        .padding(.top, 12)
                     
                     HStack(spacing: 0) {
                         Button {
@@ -175,13 +175,13 @@ struct HomeView: View {
                                 .font(.custom("Urbanist", size: 18))
                                 .fontWeight(.heavy)
                             
-                            Button(action: {
-                                currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) ?? currentDate
-                            }) {
-                                Image(systemName: "arrow.right")
-                                    .font(.system(size: 24))
-                                    .fontWeight(.heavy)
-                            }
+                            //                            Button(action: {
+                            //                                currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) ?? currentDate
+                            //                            }) {
+                            //                                Image(systemName: "arrow.right")
+                            //                                    .font(.system(size: 24))
+                            //                                    .fontWeight(.heavy)
+                            //                            }
                         }
                         .padding()
                         
