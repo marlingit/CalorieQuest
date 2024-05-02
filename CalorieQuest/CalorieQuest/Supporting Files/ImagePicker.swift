@@ -1,8 +1,8 @@
 //
 //  ImagePicker.swift
-//  PhotosVideos
+//  NationalParks
 //
-//  Created by Osman Balci on 2/12/24.
+//  Created by Osman Balci on 3/25/24.
 //  Copyright © 2024 Osman Balci. All rights reserved.
 //
 
@@ -23,6 +23,9 @@ struct ImagePicker: UIViewControllerRepresentable {
      
      For storage and performance efficiency reasons, we scale down the photo image selected from
      the photo library or taken by the camera to a smaller size with imageWidth and imageHeight.
+     
+     Note that a Core Graphics (CG) structure such as CGFloat, CGPoint, CGRect, or CGSize is
+     defined in points, not pixels. A high-resolution display uses 3 pixels for 1 point.
      */
     
     /*
@@ -32,8 +35,8 @@ struct ImagePicker: UIViewControllerRepresentable {
      */
     @Binding var uiImage: UIImage?                          // Image to be picked as of UIImage type
     let sourceType: UIImagePickerController.SourceType      // Pick image from .camera or .photoLibrary
-    let imageWidth: CGFloat                                 // Picked image to be scaled to imageWidth
-    let imageHeight: CGFloat                                // Picked image to be scaled to imageHeight
+    let imageWidth: CGFloat                                 // Picked image to be scaled to imageWidth in points
+    let imageHeight: CGFloat                                // Picked image to be scaled to imageHeight in points
     
     /*
      ------------------------
@@ -69,8 +72,8 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
         
         /*
-         Designate this view controller as the delegate so that we can implement
-         the protocol methods in the ImagePickerCoordinator class below
+         Designate this view controller as the delegate so that we can implement the
+         UIImagePickerControllerDelegate protocol methods in the ImagePickerCoordinator class below
          */
         imagePickerController.delegate = context.coordinator
         
@@ -125,7 +128,7 @@ class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImageP
         }
         
         /*
-         Scale the picked uiImage to the desired size for storage and performance efficiency reasons.
+         Scale the picked uiImage to the desired size in points for storage and performance efficiency reasons.
          The scaleUIImage() method is given below as an extension of the UIImage class.
          */
         let scaledImage = uiImage!.scaleUIImage(targetSize: CGSize(width: imageWidth, height: imageHeight))
@@ -147,9 +150,9 @@ class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImageP
 }
 
 /*
- *********************************
- MARK: Scale Image to Desired Size
- *********************************
+ *******************************************
+ MARK: Scale Image to Desired Size in Points
+ *******************************************
  */
 extension UIImage {
     
@@ -160,7 +163,7 @@ extension UIImage {
          */
         let widthRatio = targetSize.width / size.width
         let heightRatio = targetSize.height / size.height
-        let scaleFactor = min(widthRatio, heightRatio)
+        let scaleFactor = min(widthRatio, heightRatio)      // Select the minimum ratio
         
         // Set the size of the image to be proportionately resized
         let scaledImageSize = CGSize(width: size.width * scaleFactor, height: size.height * scaleFactor)
@@ -175,3 +178,4 @@ extension UIImage {
         return scaledImage
     }
 }
+

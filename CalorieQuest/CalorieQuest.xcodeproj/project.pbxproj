@@ -60,6 +60,7 @@
 		D237DCCE2BE3F2A300675576 /* DatabaseResultsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCCD2BE3F2A300675576 /* DatabaseResultsDetails.swift */; };
 		D237DCD02BE4159800675576 /* VideoDatabaseSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCCF2BE4159800675576 /* VideoDatabaseSearch.swift */; };
 		D237DCD22BE4177C00675576 /* VideoResultsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCD12BE4177C00675576 /* VideoResultsList.swift */; };
+		D237DCD42BE45CC200675576 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCD32BE45CC200675576 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		D237DCCD2BE3F2A300675576 /* DatabaseResultsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseResultsDetails.swift; sourceTree = "<group>"; };
 		D237DCCF2BE4159800675576 /* VideoDatabaseSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDatabaseSearch.swift; sourceTree = "<group>"; };
 		D237DCD12BE4177C00675576 /* VideoResultsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResultsList.swift; sourceTree = "<group>"; };
+		D237DCD32BE45CC200675576 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				D237DCA82BE2F43800675576 /* BottomSheet.swift */,
 				D237DCA62BE2F43800675576 /* RoundedCorners.swift */,
 				8CE87D272BE33DBE00168A44 /* WebView.swift */,
+				D237DCD32BE45CC200675576 /* ImagePicker.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D237DCC32BE3F1FB00675576 /* ApiResultsList.swift in Sources */,
+				D237DCD42BE45CC200675576 /* ImagePicker.swift in Sources */,
 				D237DC852BE1FA9400675576 /* NutritionixDataFromName.swift in Sources */,
 				D237DC7B2BE1F56000675576 /* FlashlightButtonView.swift in Sources */,
 				8CE87D232BE3350200168A44 /* NotFound.swift in Sources */,
