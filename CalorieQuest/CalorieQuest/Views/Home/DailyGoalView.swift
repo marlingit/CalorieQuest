@@ -12,7 +12,7 @@ struct DailyGoalView: View {
     @Binding var detailsViewSelected: Int
     @Binding var sheetActive: Bool
     
-    @AppStorage("calorieTarget") var calories: String = "Set Goal"
+    @AppStorage("calorieTarget") var calories: String = ""
     @AppStorage("carbohydrateTarget") var carbohydrates: String = ""
     @AppStorage("proteinTarget") var proteins: String = ""
     @AppStorage("fatTarget") var fats: String = ""

@@ -9,10 +9,20 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @AppStorage("firstname") var firstName: String = "Vijay"
+    @AppStorage("firstname") var firstName: String = ""
     
-    @AppStorage("calorieTarget") var calorieTarget: String = ""
-    @AppStorage("caloriesCurrent") var caloriesCurrent: String = "1400"
+    @AppStorage("calorieTarget") var calorieTarget: String = "Set Goal"
+    @AppStorage("caloriesCurrent") var caloriesCurrent: String = "0"
+    @AppStorage("lastResetDateString") var lastResetDateString: String = ""
+    
+    var lastResetDate: Date {
+        guard !lastResetDateString.isEmpty else {
+            return Date()
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.date(from: lastResetDateString) ?? Date()
+    }
     
     @Binding var profileBottomSheetActive: Bool
     @Binding var trackBottomSheetActive: Bool
@@ -69,7 +79,7 @@ struct HomeView: View {
                             
                             VStack(spacing: 0) {
                                 HStack(spacing: 0) {
-                                    Text("\(caloriesCurrent)/\(calorieTarget)")
+                                    Text("\(caloriesCurrent) / \(calorieTarget)")
                                         .foregroundStyle(.black)
                                         .font(.custom("Urbanist", size: 24))
                                         .fontWeight(.heavy)
@@ -211,6 +221,14 @@ struct HomeView: View {
                     .padding(.leading, 24)
                     .padding(.trailing, 24)
                     .padding(.top, 24)
+                    .onChange(of: currentDate) { _ in
+                        if !Calendar.current.isDate(lastResetDate, inSameDayAs: currentDate) {
+                            caloriesCurrent = "0"
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd"
+                            lastResetDateString = dateFormatter.string(from: currentDate)
+                        }
+                    }
                 
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
