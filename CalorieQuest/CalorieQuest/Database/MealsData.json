@@ -1,54 +1,76 @@
 [
 	{
-		"name": "",
+		"name": "Early Breakfast",
 		"foods":
 		[
-			{
-				"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
-				[
-					{"name": "calories", "amount": 20.0, "unit": "cal"},
-					{"name": "total fat", "amount": 0.5, "unit": "mg"},
-					{"name": "saturated fat", "amount": 0.2, "unit": "mg"},
-					{"name": "cholesterol", "amount": 0.1, "unit": "mg"},
-					{"name": "sodium", "amount": 0.5, "unit": "mg"},
-				]
-			},
-			{
-				"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
-				[
-					{"name": "calories", "amount": 20.0, "unit": "cal"},
-					{"name": "total fat", "amount": 0.5, "unit": "mg"},
-					{"name": "saturated fat", "amount": 0.2, "unit": "mg"},
-					{"name": "cholesterol", "amount": 0.1, "unit": "mg"},
-					{"name": "sodium", "amount": 0.5, "unit": "mg"},
-				]
-			}
-		]
-	},
-	{
-		"name": "",
-		"foods":
-		[
-			{
-				"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients":
-				[
-					{"name": "calories", "amount": 20.0, "unit": "cal"},
-					{"name": "total fat", "amount": 0.5, "unit": "mg"},
-					{"name": "saturated fat", "amount": 0.2, "unit": "mg"},
-					{"name": "cholesterol", "amount": 0.1, "unit": "mg"},
-					{"name": "sodium", "amount": 0.5, "unit": "mg"},
-				]
-			},
-			{
-				"name": "", "itemId": "", "imageUrl": "", "servingSize": 0.0, "servingUnit": "", "nutrients": 
-				[
-					{"name": "calories", "amount": 20.0, "unit": "cal"},
-					{"name": "total fat", "amount": 0.5, "unit": "mg"},
-					{"name": "saturated fat", "amount": 0.2, "unit": "mg"},
-					{"name": "cholesterol", "amount": 0.1, "unit": "mg"},
-					{"name": "sodium", "amount": 0.5, "unit": "mg"},
-				]
-			}
+            {
+                "name": "Scrambled Eggs",
+                "itemId": "1",
+                "imageUrl": "https://example.com/images/scrambled-eggs.jpg",
+                "servingSize": 2,
+                "servingUnit": "large",
+                "nutrients": [
+                    {
+                        "name": "calories",
+                        "amount": 140,
+                        "unit": "cal"
+                    },
+                    {
+                        "name": "total fat",
+                        "amount": 9,
+                        "unit": "g"
+                    },
+                    {
+                        "name": "saturated fat",
+                        "amount": 3,
+                        "unit": "g"
+                    },
+                    {
+                        "name": "cholesterol",
+                        "amount": 370,
+                        "unit": "mg"
+                    },
+                    {
+                        "name": "sodium",
+                        "amount": 150,
+                        "unit": "mg"
+                    }
+                ]
+            },
+            {
+                "name": "Whole Wheat Toast",
+                "itemId": "2",
+                "imageUrl": "https://example.com/images/whole-wheat-toast.jpg",
+                "servingSize": 2,
+                "servingUnit": "slices",
+                "nutrients": [
+                    {
+                        "name": "calories",
+                        "amount": 200,
+                        "unit": "cal"
+                    },
+                    {
+                        "name": "total fat",
+                        "amount": 3,
+                        "unit": "g"
+                    },
+                    {
+                        "name": "saturated fat",
+                        "amount": 0.5,
+                        "unit": "g"
+                    },
+                    {
+                        "name": "cholesterol",
+                        "amount": 0,
+                        "unit": "mg"
+                    },
+                    {
+                        "name": "sodium",
+                        "amount": 300,
+                        "unit": "mg"
+                    }
+                ]
+            }
 		]
 	}
 ]

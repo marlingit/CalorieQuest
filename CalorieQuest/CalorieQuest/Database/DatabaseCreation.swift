@@ -182,7 +182,7 @@ public func createDatabase() {
             
         }   // End of 'for aTracked in aDayStruct.tracked' loop
         
-    }   // End of 'for aRecipeStruct in arrayOfRecipeStructs' loop
+    }   // End of 'for aDayStruct in arrayOfDayStructs' loop
     
     
     

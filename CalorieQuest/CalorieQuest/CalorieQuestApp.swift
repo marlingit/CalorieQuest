@@ -11,6 +11,7 @@ import SwiftUI
 struct CalorieQuestApp: App {
     
     init() {
+        createDatabase()
         createScanFocusRegionImage()
     }
     
