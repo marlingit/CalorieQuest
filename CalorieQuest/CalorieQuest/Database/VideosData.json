@@ -1,17 +1,72 @@
 [
 	{
 		"id": 1,
-		"title": "",
-		"youtubeId": "",
-		"releaseDate": "2020-01-01",
-		"duration": "10:01"
+		"title": "TOTAL BODY TONE UP WORKOUT",
+		"youtubeId": "2dOjJpPjfkw",
+		"releaseDate": "2026-01-05",
+		"duration": "14:33"
 	},
 	{
 		"id": 2,
-		"title": "",
-		"youtubeId": "",
-		"releaseDate": "2020-01-01",
-		"duration": "10:01"
-	}
-    
+		"title": "FAST Walking in 30 minutes | Fitness Videos",
+		"youtubeId": "enYITYwvPAQ",
+		"releaseDate": "2019-04-17",
+		"duration": "31:30"
+	},
+    {
+        "id": 3,
+        "title": "15-minute Workout for Older Adults",
+        "youtubeId": "Ev6yE55kYGw",
+        "releaseDate": "2016-12-14",
+        "duration": "15:29"
+    },
+    {
+        "id": 4,
+        "title": "Seated Exercises for Older Adults",
+        "youtubeId": "8BcPHWGQO44",
+        "releaseDate": "2012-08-13",
+        "duration": "09:43"
+    },
+    {
+        "id": 5,
+        "title": "30-Minute Hip-Hop Tabata to Torch Calories",
+        "youtubeId": "kwkXyHjgoDM",
+        "releaseDate": "2018-01-21",
+        "duration": "30:17"
+    },
+    {
+        "id": 6,
+        "title": "Half An Hour Weight Loss - 30 Min Home Workout To Burn Fat",
+        "youtubeId": "CIxNJbit9BA",
+        "releaseDate": "2018-05-025",
+        "duration": "31:55"
+    },
+    {
+        "id": 7,
+        "title": "Do This Workout After Eating - 11 Min To Burn Calories",
+        "youtubeId": "XkgHNXjbNgM",
+        "releaseDate": "2019-01-15",
+        "duration": "11:32"
+    },
+    {
+        "id": 8,
+        "title": "20 MIN CARDIO HIIT WORKOUT - ALL STANDING - Full Body, No Equipment, No Repeats",
+        "youtubeId": "FeR-4_Opt-g",
+        "releaseDate": "2023-07-12",
+        "duration": "27:47"
+    },
+    {
+        "id": 9,
+        "title": "Dance Cardio Workout - 40 Minutes Dance cardio To Burn Fat - Total Body Workout",
+        "youtubeId": "ijNdZZ4hgw4",
+        "releaseDate": "2017-03-06",
+        "duration": "40:31"
+    },
+    {
+        "id": 10,
+        "title": "5 Exercises for Seniors to Lose Belly Fat",
+        "youtubeId": "GQvhi408vAA",
+        "releaseDate": "2020-06-18",
+        "duration": "06:47"
+    }
 ]
