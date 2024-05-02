@@ -48,6 +48,7 @@
 		D237DCAB2BE2F43800675576 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCA82BE2F43800675576 /* BottomSheet.swift */; };
 		D237DCB32BE3308400675576 /* VideosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCB22BE3308400675576 /* VideosList.swift */; };
 		D237DCB52BE3309200675576 /* VideosItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCB42BE3309200675576 /* VideosItem.swift */; };
+		D237DCB72BE3366200675576 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCB62BE3366200675576 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		D237DCA82BE2F43800675576 /* BottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		D237DCB22BE3308400675576 /* VideosList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosList.swift; sourceTree = "<group>"; };
 		D237DCB42BE3309200675576 /* VideosItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosItem.swift; sourceTree = "<group>"; };
+		D237DCB62BE3366200675576 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				D237DCA72BE2F43800675576 /* ActivityRing.swift */,
 				D237DCA82BE2F43800675576 /* BottomSheet.swift */,
 				D237DCA62BE2F43800675576 /* RoundedCorners.swift */,
+				D237DCB62BE3366200675576 /* WebView.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				D237DCB32BE3308400675576 /* VideosList.swift in Sources */,
 				D237DCAB2BE2F43800675576 /* BottomSheet.swift in Sources */,
 				D237DCAA2BE2F43800675576 /* ActivityRing.swift in Sources */,
+				D237DCB72BE3366200675576 /* WebView.swift in Sources */,
 				D237DC882BE2F40600675576 /* ContentView.swift in Sources */,
 				D237DCA42BE2F42D00675576 /* BMIView.swift in Sources */,
 				D237DCA12BE2F42D00675576 /* CreateAccountView.swift in Sources */,
