@@ -24,7 +24,7 @@ struct VideosItem: View {
                 Text(video.duration)
             }//end VStack
             
-            .font(.system(size: 14))
+            .font(.system(size: 16))
         }//end HStack
     }//end body
 }
