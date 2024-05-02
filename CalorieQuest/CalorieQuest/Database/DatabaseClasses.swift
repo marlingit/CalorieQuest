@@ -37,19 +37,6 @@ final class Tracked {
 }
 
 @Model
-final class Meal {
-    
-    @Attribute(.unique) var name: String
-    
-    @Relationship(deleteRule: .nullify) var foods: [Food]?
-    
-    init(name: String, foods: [Food]) {
-        self.name = name
-        self.foods = foods
-    }
-}
-
-@Model
 final class Food {
     
     var name: String

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct CalorieQuestApp: App {
@@ -21,6 +22,7 @@ struct CalorieQuestApp: App {
         WindowGroup {
             AuthManager(authenticationComplete: $authenticationComplete)
                 .preferredColorScheme(.light)
+                .modelContainer(for: [Day.self, Tracked.self, Food.self, Nutrient.self, Video.self], isUndoEnabled: true)
         }
     }
 }

@@ -12,7 +12,7 @@ struct SearchView: View {
     @State private var selectedOption: String = "Database"
     let options: [String] = ["Database", "API", "Videos DB"]
     
-    @State private var searchQuery: String = ""
+    @State private var searchFieldTextValue: String = ""
     
     var body: some View {
         VStack {
@@ -57,7 +57,7 @@ struct SearchView: View {
                             .font(.system(size: 18))
                             .fontWeight(.heavy)
                         
-                        TextField("Search", text: $searchQuery)
+                        TextField("Search", text: $searchFieldTextValue)
                             .font(.system(size: 18))
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))

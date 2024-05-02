@@ -6,22 +6,21 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct StarredView: View {
+    
+    @Environment(\.modelContext) private var modelContext
+    @Query(FetchDescriptor<Food>(sortBy: [SortDescriptor(\Food.name, order: .forward)])) private var listOfAllFoodsInDatabase: [Food]
+    
+    @State private var toBeDeleted: IndexSet?
+    @State private var showConfirmation = false
+    
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 0) {
                 
-                Button {
-                    
-                } label: {
-                    Image(systemName: "")
-                        .resizable()
-                        .scaledToFit()
-                        .fontWeight(.heavy)
-                        .foregroundStyle(.black)
-                        .frame(width: 25)
-                }
+                EditButton()
                 .padding(.top, 4)
                 
                 Spacer()
@@ -48,31 +47,51 @@ struct StarredView: View {
                 .padding(.leading, 24)
                 .padding(.trailing, 24)
                 .padding(.top, 12)
-            ScrollView {
-                ForEach(0..<4, id: \.self) { favorite in
-                        FavoriteItem()
+            NavigationStack {
+                List {
+                    ForEach(listOfAllFoodsInDatabase) { aFood in
+                        NavigationLink(destination: FoodDetails(food: aFood)) {
+                            FoodItem(food: aFood)
+                                .alert(isPresented: $showConfirmation) {
+                                    Alert(title: Text("Delete Confirmation"),
+                                          message: Text("Are you sure to permanently delete the food? It cannot be undone."),
+                                          primaryButton: .destructive(Text("Delete")) {
+                                        /*
+                                        'toBeDeleted (IndexSet).first' is an unsafe pointer to the index number of the array
+                                         element to be deleted. It is nil if the array is empty. Process it as an optional.
+                                        */
+                                        if let index = toBeDeleted?.first {
+                                           
+                                            let foodToDelete = listOfAllFoodsInDatabase[index]
+                                            
+                                            // ❎ Delete selected Trip object from the database
+                                            modelContext.delete(foodToDelete)
+                                        }
+                                        toBeDeleted = nil
+                                    }, secondaryButton: .cancel() {
+                                        toBeDeleted = nil
+                                    }
+                                )
+                            }   // End of alert
+                        }
+                    }
+                    .onDelete(perform: delete)
                 }
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.leading, 24)
                 .padding(.trailing, 12)
         }
     }
+    
+    /*
+     --------------------------
+     MARK: Delete Selected Food
+     --------------------------
+     */
+    func delete(at offsets: IndexSet) {
+        
+         toBeDeleted = offsets
+         showConfirmation = true
+     }
 }
 
-struct FavoritesList: View {
-    var body: some View {
-        NavigationStack {
-            List {
-                ForEach(0..<4, id: \.self) { favorite in
-                        FavoriteItem()
-                        .padding(.top, 4)
-                }
-                
-            }   // End of List
-            .font(.system(size: 14))
-            .navigationTitle("List of Trips")
-            .toolbarTitleDisplayMode(.inline)
-            
-        }   // End of NavigationStack
-    }
-}

@@ -18,8 +18,8 @@ public func createDatabase() {
     var modelContainer: ModelContainer
 
     do {
-        // Create a database container to manage Day, Tracked, Meal, Food, Nutrient, and Video objects
-        modelContainer = try ModelContainer(for: Day.self, Tracked.self, Meal.self, Food.self, Nutrient.self, Video.self)
+        // Create a database container to manage Day, Tracked, Food, Nutrient, and Video objects
+        modelContainer = try ModelContainer(for: Day.self, Tracked.self, Food.self, Nutrient.self, Video.self)
     } catch {
         fatalError("Unable to create ModelContainer")
     }
@@ -109,171 +109,53 @@ public func createDatabase() {
              */
 
             for aFood in aTracked.foods {
+                print(aFood.name)
                 
-                let foodId = aFood.itemId
-                let foodPredicate = #Predicate<Food> {
-                    $0.itemId == foodId
-                }
-                
-                let foodFetechDescriptor = FetchDescriptor<Food>(
-                    predicate: foodPredicate,
-                    sortBy: [SortDescriptor(\Food.name, order: .forward)]
+                let newFood = Food(
+                    name: aFood.name,
+                    itemId: aFood.itemId,
+                    imageUrl: aFood.imageUrl,
+                    servingSize: aFood.servingSize,
+                    servingUnit: aFood.servingUnit,
+                    nutrients: [Nutrient]()
                 )
                 
-                var foodResultsArray: [Food]
-                var thisFood: Food
+                modelContext.insert(newFood)
                 
-                do {
-                    foodResultsArray = try modelContext.fetch(foodFetchDescriptor)
+                newTracked.foods!.append(newFood)
+                
+                /*
+                 ================================
+                 |   Nutrient Object Creation   |
+                 ================================
+                 */
+
+                for aNutrient in aFood.nutrients {
+
+                    // Instantiate a Nutrient object and dress it up
+                    let newNutrient = Nutrient(
+                        name: aNutrient.name,
+                        amount: aNutrient.amount,
+                        unit: aNutrient.unit,
+                        
+                        foods: [Food]()
+                    )
                     
-                    if foodResultsArray.isEmpty {
-                        
-                        thisFood = Food(
-                            name: aFood.name,
-                            itemId: aFood.itemId,
-                            imageUrl: aFood.imageUrl,
-                            servingSize: aFood.servingSize,
-                            servingUnit: aFood.servingUnit,
-                            
-                            nutrients: [Nutrient]()
-                        )
-                        
-                        modelContext.insert(thisFood)
-                        
-                        newTracked.foods!.append(thisFood)    // One Tracked can contain many Foods
-                        
-                        
-                        /*
-                         ================================
-                         |   Nutrient Object Creation   |
-                         ================================
-                         */
+                    // ❎ Insert it into the database context
+                    modelContext.insert(newFood)
+                    
+                    newNutrient.foods!.append(newFood)  // Many Nutrients can be in many Foods
 
-                        for aNutrient in aFood.nutrients {
-
-                            // Instantiate a Nutrient object and dress it up
-                            let newNutrient = Nutrient(
-                                name: aNutrient.name,
-                                amount: aNutrient.amount,
-                                unit: aNutrient.unit,
-                                
-                                foods: [Food]()
-                            )
-                            
-                            // ❎ Insert it into the database context
-                            modelContext.insert(thisFood)
-                            
-                            newNutrient.foods!.append(thisFood)  // Many Nutrients can be in many Foods
-
-                            thisFood.nutrients!.append(newNutrient)    // Many Foods can contain many Nutrients
-                            
-                        }   // End of 'for aNutrient in aFood.nutrients' loop
-                        
-                    } else {
-                        thisFood = foodResultsArray[0]
-                        
-                        newTracked.foods!.append(thisFood)    // One Tracked can contain many Foods
-                    }
-                } catch {
-                    fatalError("Unable to fetch Food data from the database")
-                }
+                    newFood.nutrients!.append(newNutrient)    // Many Foods can contain many Nutrients
+                    
+                }   // End of 'for aNutrient in aFood.nutrients' loop
                 
+                print(newFood.name)
             }   // End of 'for aFood in aTracked.foods' loop
             
         }   // End of 'for aTracked in aDayStruct.tracked' loop
         
     }   // End of 'for aDayStruct in arrayOfDayStructs' loop
-    
-    
-    
-    // Meal Creation
-    
-    var arrayOfMealStructs = [MealStruct]()
-    
-    arrayOfMealStructs = decodeJsonFileIntoArrayOfStructs(fullFilename: "MealsData.json", fileLocation: "Main Bundle")
-    
-    for aMealStruct in arrayOfMealStructs {
-        
-        let newMeal = Meal(
-            name: aMealStruct.name,
-            
-            foods: [Food]()
-        )
-        
-        modelContext.insert(newMeal)
-        
-        for aFood in aMealStruct.foods {
-            
-            let foodId = aFood.itemId
-            let foodPredicate = #Predicate<Food> {
-                $0.itemId == foodId
-            }
-            
-            let foodFetechDescriptor = FetchDescriptor<Food>(
-                predicate: foodPredicate,
-                sortBy: [SortDescriptor(\Food.name, order: .forward)]
-            )
-            
-            var foodResultsArray: [Food]
-            var thisFood: Food
-            
-            do {
-                foodResultsArray = try modelContext.fetch(foodFetchDescriptor)
-                
-                if foodResultsArray.isEmpty {
-                    
-                    thisFood = Food(
-                        name: aFood.name,
-                        itemId: aFood.itemId,
-                        imageUrl: aFood.imageUrl,
-                        servingSize: aFood.servingSize,
-                        servingUnit: aFood.servingUnit,
-                        
-                        nutrients: [Nutrient]()
-                    )
-                    
-                    modelContext.insert(thisFood)
-                    
-                    newMeal.foods!.append(thisFood)    // One Meal can contain many Foods
-                    
-                    
-                    /*
-                     ================================
-                     |   Nutrient Object Creation   |
-                     ================================
-                     */
-
-                    for aNutrient in aFood.nutrients {
-
-                        // Instantiate a Nutrient object and dress it up
-                        let newNutrient = Nutrient(
-                            name: aNutrient.name,
-                            amount: aNutrient.amount,
-                            unit: aNutrient.unit,
-                            
-                            foods: [Food]()
-                        )
-                        
-                        // ❎ Insert it into the database context
-                        modelContext.insert(thisFood)
-                        
-                        newNutrient.foods!.append(thisFood)  // Many Nutrients can be in many Foods
-
-                        thisFood.nutrients!.append(newNutrient)    // Many Foods can contain many Nutrients
-                        
-                    }   // End of 'for aNutrient in aFood.nutrients' loop
-                    
-                } else {
-                    thisFood = foodResultsArray[0]
-                    
-                    newMeal.foods!.append(thisFood)    // One Meal can contain many Foods
-                }
-            } catch {
-                fatalError("Unable to fetch Food data from the database")
-            }
-        }
-    }
-    
     
     // Video Creation
     
