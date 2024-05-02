@@ -9,7 +9,7 @@
                     {
                         "name": "Scrambled Eggs",
                         "itemId": "1",
-                        "imageUrl": "https://example.com/images/scrambled-eggs.jpg",
+                        "imageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2021/05/scrambled-eggs.jpg",
                         "servingSize": 2,
                         "servingUnit": "large",
                         "nutrients": [
@@ -43,7 +43,7 @@
                     {
                         "name": "Whole Wheat Toast",
                         "itemId": "2",
-                        "imageUrl": "https://example.com/images/whole-wheat-toast.jpg",
+                        "imageUrl": "https://kristineskitchenblog.com/wp-content/uploads/2014/08/whole-wheat-bread-1200-square-2678.jpg",
                         "servingSize": 2,
                         "servingUnit": "slices",
                         "nutrients": [
@@ -83,7 +83,7 @@
                     {
                         "name": "Grilled Chicken Salad",
                         "itemId": "3",
-                        "imageUrl": "https://example.com/images/grilled-chicken-salad.jpg",
+                        "imageUrl": "https://www.dinneratthezoo.com/wp-content/uploads/2020/12/grilled-chicken-salad-4.jpg",
                         "servingSize": 1,
                         "servingUnit": "bowl",
                         "nutrients": [
@@ -123,7 +123,7 @@
                     {
                         "name": "Spaghetti Bolognese",
                         "itemId": "4",
-                        "imageUrl": "https://example.com/images/spaghetti-bolognese.jpg",
+                        "imageUrl": "https://www.countdown.co.nz/Content/Recipes/230232-Classic-SpagBol_810x520.jpg",
                         "servingSize": 1,
                         "servingUnit": "plate",
                         "nutrients": [
@@ -157,7 +157,7 @@
                     {
                         "name": "Garlic Bread",
                         "itemId": "5",
-                        "imageUrl": "https://example.com/images/garlic-bread.jpg",
+                        "imageUrl": "https://www.budgetbytes.com/wp-content/uploads/2023/08/Garlic-Bread-close.jpg",
                         "servingSize": 2,
                         "servingUnit": "slices",
                         "nutrients": [
@@ -202,7 +202,7 @@
                     {
                         "name": "Oatmeal",
                         "itemId": "6",
-                        "imageUrl": "https://example.com/images/oatmeal.jpg",
+                        "imageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/09/oatmeal-500x375.jpg",
                         "servingSize": 1,
                         "servingUnit": "cup",
                         "nutrients": [
@@ -236,7 +236,7 @@
                     {
                         "name": "Banana",
                         "itemId": "7",
-                        "imageUrl": "https://example.com/images/banana.jpg",
+                        "imageUrl": "https://domf5oio6qrcr.cloudfront.net/medialibrary/6372/202ebeef-6657-44ec-8fff-28352e1f5999.jpg",
                         "servingSize": 1,
                         "servingUnit": "medium",
                         "nutrients": [
@@ -276,7 +276,7 @@
                     {
                         "name": "Turkey Sandwich",
                         "itemId": "8",
-                        "imageUrl": "https://example.com/images/turkey-sandwich.jpg",
+                        "imageUrl": "https://www.thewickednoodle.com/wp-content/uploads/2016/01/Sandwich-1-480x360.jpg",
                         "servingSize": 1,
                         "servingUnit": "sandwich",
                         "nutrients": [
@@ -310,7 +310,7 @@
                     {
                         "name": "Apple",
                         "itemId": "9",
-                        "imageUrl": "https://example.com/images/apple.jpg",
+                        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg",
                         "servingSize": 1,
                         "servingUnit": "medium",
                         "nutrients": [
@@ -350,7 +350,7 @@
                     {
                         "name": "Grilled Salmon",
                         "itemId": "10",
-                        "imageUrl": "https://example.com/images/grilled-salmon.jpg",
+                        "imageUrl": "https://www.acouplecooks.com/wp-content/uploads/2020/05/Grilled-Salmon-015-1.jpg",
                         "servingSize": 6,
                         "servingUnit": "oz",
                         "nutrients": [
@@ -384,7 +384,7 @@
                     {
                         "name": "Roasted Vegetables",
                         "itemId": "11",
-                        "imageUrl": "https://example.com/images/roasted-vegetables.jpg",
+                        "imageUrl": "https://www.recipetineats.com/wp-content/uploads/2021/07/Roasted-Vegetables_55-SQ.jpg",
                         "servingSize": 1,
                         "servingUnit": "cup",
                         "nutrients": [
@@ -429,7 +429,7 @@
                     {
                         "name": "Greek Yogurt",
                         "itemId": "12",
-                        "imageUrl": "https://example.com/images/greek-yogurt.jpg",
+                        "imageUrl": "https://media.post.rvohealth.io/wp-content/uploads/2021/10/fruit-berries-yogurt-732x549-thumbnail-732x549.jpg",
                         "servingSize": 1,
                         "servingUnit": "cup",
                         "nutrients": [
@@ -463,7 +463,7 @@
                     {
                         "name": "Granola",
                         "itemId": "13",
-                        "imageUrl": "https://example.com/images/granola.jpg",
+                        "imageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/01/granola.jpg",
                         "servingSize": 0.5,
                         "servingUnit": "cup",
                         "nutrients": [
@@ -503,7 +503,7 @@
                     {
                         "name": "Vegetable Soup",
                         "itemId": "14",
-                        "imageUrl": "https://example.com/images/vegetable-soup.jpg",
+                        "imageUrl": "https://thecozyapron.com/wp-content/uploads/2018/07/vegetable-soup_thecozyapron_1.jpg",
                         "servingSize": 1,
                         "servingUnit": "bowl",
                         "nutrients": [
@@ -537,7 +537,7 @@
                     {
                         "name": "Crackers",
                         "itemId": "15",
-                        "imageUrl": "https://example.com/images/crackers.jpg",
+                        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Saltine-Crackers.JPG/800px-Saltine-Crackers.JPG",
                         "servingSize": 6,
                         "servingUnit": "pieces",
                         "nutrients": [
@@ -577,7 +577,7 @@
                     {
                         "name": "Beef Stir-Fry",
                         "itemId": "16",
-                        "imageUrl": "https://example.com/images/beef-stir-fry.jpg",
+                        "imageUrl": "https://khinskitchen.com/wp-content/uploads/2023/03/beef-stir-fry-01.jpg",
                         "servingSize": 1,
                         "servingUnit": "plate",
                         "nutrients": [
@@ -611,7 +611,7 @@
                     {
                         "name": "Brown Rice",
                         "itemId": "17",
-                        "imageUrl": "https://example.com/images/brown-rice.jpg",
+                        "imageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/01/how-to-cook-brown-rice.jpg",
                         "servingSize": 1,
                         "servingUnit": "cup",
                         "nutrients": [
@@ -647,7 +647,7 @@
         ]
     },
     {
-        "date": "2024-04-29",
+        "date": "2024-04-30",
         "tracked": [
             {
                 "category": "Breakfast",
@@ -656,7 +656,7 @@
                     {
                         "name": "Bagel",
                         "itemId": "20",
-                        "imageUrl": "https://example.com/images/bagel.jpg",
+                        "imageUrl": "https://bakingamoment.com/wp-content/uploads/2020/06/IMG_8813-bagel-recipe.jpg",
                         "servingSize": 1,
                         "servingUnit": "piece",
                         "nutrients": [
@@ -690,7 +690,7 @@
                     {
                         "name": "Cream Cheese",
                         "itemId": "21",
-                        "imageUrl": "https://example.com/images/cream-cheese.jpg",
+                        "imageUrl": "https://www.biggerbolderbaking.com/wp-content/uploads/2021/02/Homemade-cream-cheese-Thumbnail-scaled.jpg",
                         "servingSize": 2,
                         "servingUnit": "tbsp",
                         "nutrients": [
@@ -730,7 +730,7 @@
                     {
                         "name": "Caesar Salad",
                         "itemId": "22",
-                        "imageUrl": "https://example.com/images/caesar-salad.jpg",
+                        "imageUrl": "https://www.recipetineats.com/wp-content/uploads/2016/05/Caesar-Salad_7-SQ.jpg",
                         "servingSize": 1,
                         "servingUnit": "bowl",
                         "nutrients": [
@@ -764,7 +764,7 @@
                     {
                         "name": "Croutons",
                         "itemId": "23",
-                        "imageUrl": "https://example.com/images/croutons.jpg",
+                        "imageUrl": "https://iambaker.net/wp-content/uploads/2018/10/croutons-1.jpg",
                         "servingSize": 0.5,
                         "servingUnit": "cup",
                         "nutrients": [
@@ -804,7 +804,7 @@
                     {
                         "name": "Beef Tacos",
                         "itemId": "24",
-                        "imageUrl": "https://example.com/images/beef-tacos.jpg",
+                        "imageUrl": "https://www.creationsbykara.com/wp-content/uploads/2023/10/Ground-Beef-Tacos-26-2-735x927.jpg",
                         "servingSize": 2,
                         "servingUnit": "tacos",
                         "nutrients": [
@@ -838,7 +838,7 @@
                     {
                         "name": "Salsa",
                         "itemId": "25",
-                        "imageUrl": "https://example.com/images/salsa.jpg",
+                        "imageUrl": "https://www.eatingwell.com/thmb/0y3PRwVPUtvrH1JkDQljP_6bT8o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/fresh-tomato-salsa-515888f5904b497680f37033e31ce990.jpg",
                         "servingSize": 0.25,
                         "servingUnit": "cup",
                         "nutrients": [
