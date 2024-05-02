@@ -26,6 +26,7 @@
 		8CE87D212BE334D600168A44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D202BE334D600168A44 /* ContentView.swift */; };
 		8CE87D232BE3350200168A44 /* NotFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D222BE3350200168A44 /* NotFound.swift */; };
 		8CE87D262BE3356F00168A44 /* ScanQRBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D252BE3356F00168A44 /* ScanQRBarcode.swift */; };
+		8CE87D282BE33DBF00168A44 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D272BE33DBE00168A44 /* WebView.swift */; };
 		D237DC732BE1F27B00675576 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC722BE1F27B00675576 /* Globals.swift */; };
 		D237DC792BE1F54C00675576 /* ScanFocusRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC782BE1F54C00675576 /* ScanFocusRegion.swift */; };
 		D237DC7B2BE1F56000675576 /* FlashlightButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC7A2BE1F56000675576 /* FlashlightButtonView.swift */; };
@@ -52,7 +53,6 @@
 		D237DCAB2BE2F43800675576 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCA82BE2F43800675576 /* BottomSheet.swift */; };
 		D237DCB32BE3308400675576 /* VideosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCB22BE3308400675576 /* VideosList.swift */; };
 		D237DCB52BE3309200675576 /* VideosItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCB42BE3309200675576 /* VideosItem.swift */; };
-		D237DCB72BE3366200675576 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DCB62BE3366200675576 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +77,7 @@
 		8CE87D202BE334D600168A44 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8CE87D222BE3350200168A44 /* NotFound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotFound.swift; sourceTree = "<group>"; };
 		8CE87D252BE3356F00168A44 /* ScanQRBarcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanQRBarcode.swift; sourceTree = "<group>"; };
+		8CE87D272BE33DBE00168A44 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		D237DC722BE1F27B00675576 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		D237DC782BE1F54C00675576 /* ScanFocusRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanFocusRegion.swift; sourceTree = "<group>"; };
 		D237DC7A2BE1F56000675576 /* FlashlightButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashlightButtonView.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		D237DCA82BE2F43800675576 /* BottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		D237DCB22BE3308400675576 /* VideosList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosList.swift; sourceTree = "<group>"; };
 		D237DCB42BE3309200675576 /* VideosItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosItem.swift; sourceTree = "<group>"; };
-		D237DCB62BE3366200675576 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +192,7 @@
 				8CE87D222BE3350200168A44 /* NotFound.swift */,
 				D237DCA82BE2F43800675576 /* BottomSheet.swift */,
 				D237DCA62BE2F43800675576 /* RoundedCorners.swift */,
-				D237DCB62BE3366200675576 /* WebView.swift */,
+				8CE87D272BE33DBE00168A44 /* WebView.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -382,6 +382,7 @@
 				D237DC7F2BE1F58500675576 /* FlashlightButton.swift in Sources */,
 				D237DC9D2BE2F42D00675576 /* SearchView.swift in Sources */,
 				D237DCA22BE2F42D00675576 /* LoginView.swift in Sources */,
+				8CE87D282BE33DBF00168A44 /* WebView.swift in Sources */,
 				8CE87D262BE3356F00168A44 /* ScanQRBarcode.swift in Sources */,
 				D237DC7D2BE1F57700675576 /* BarcodeScanner.swift in Sources */,
 				D237DC9E2BE2F42D00675576 /* StarredView.swift in Sources */,
