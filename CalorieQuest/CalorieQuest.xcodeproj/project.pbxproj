@@ -275,8 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				D237DC8F2BE2F42C00675576 /* SearchView.swift */,
+				D237DCBA2BE33FCE00675576 /* Database */,
 				D237DCB12BE3307100675576 /* Videos */,
-				8CE87D152BE321BB00168A44 /* DatabaseSearch.swift */,
 				8CE87D172BE321E200168A44 /* SearchResultsList.swift */,
 			);
 			path = Search;
@@ -289,6 +289,14 @@
 				D237DCB42BE3309200675576 /* VideosItem.swift */,
 			);
 			path = Videos;
+			sourceTree = "<group>";
+		};
+		D237DCBA2BE33FCE00675576 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8CE87D152BE321BB00168A44 /* DatabaseSearch.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

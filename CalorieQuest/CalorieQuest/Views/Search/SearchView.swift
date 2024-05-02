@@ -14,94 +14,120 @@ struct SearchView: View {
     
     @State private var searchFieldTextValue: String = ""
     
+    @State private var showAlert = false
+    @State private var showSearchResults = false
+    
     @State private var showVideosList = false
+    
     var body: some View {
-        VStack {
-            
-            HStack(alignment: .top, spacing: 0) {
+        NavigationStack {
+            VStack {
                 
-                Spacer()
-                
-                Text("Search")
-                    .foregroundStyle(.black)
-                    .font(.custom("Urbanist", size: 24))
-                    .fontWeight(.heavy)
-                
-                Spacer()
-            }.frame(maxWidth: .infinity)
-                .padding(.leading, 24)
-                .padding(.trailing, 24)
-                .padding(.top, 12)
-            
-            ScrollView {
-                VStack(spacing: 0) {
+                HStack(alignment: .top, spacing: 0) {
+                    
                     Spacer()
-                    Image(selectedOption == "Database" ? "DatabaseSearchImage" :
-                            selectedOption == "API" ? "ApiSearchImage" :
-                            "VideoSearchImage")
-                    .resizable()
-                    .frame(width: 150, height: 150)
-                    .mask(Circle())
-                    .background(Color.black.opacity(0.25).mask(Circle()))
-                    Picker("Choose an option", selection: $selectedOption) {
-                        ForEach(options, id: \.self) { option in
-                            Text(option)
-                                .font(.custom("Urbanist", size: 18))
-                                .fontWeight(.bold)
+                    
+                    Text("Search")
+                        .foregroundStyle(.black)
+                        .font(.custom("Urbanist", size: 24))
+                        .fontWeight(.heavy)
+                    
+                    Spacer()
+                }.frame(maxWidth: .infinity)
+                    .padding(.leading, 24)
+                    .padding(.trailing, 24)
+                    .padding(.top, 12)
+                
+                ScrollView {
+                    VStack(spacing: 0) {
+                        Spacer()
+                        Image(selectedOption == "Database" ? "DatabaseSearchImage" :
+                                selectedOption == "API" ? "ApiSearchImage" :
+                                "VideoSearchImage")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                        .mask(Circle())
+                        .background(Color.black.opacity(0.25).mask(Circle()))
+                        Picker("Choose an option", selection: $selectedOption) {
+                            ForEach(options, id: \.self) { option in
+                                Text(option)
+                                    .font(.custom("Urbanist", size: 18))
+                                    .fontWeight(.bold)
+                            }
                         }
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding(.top, 24)
-                    
-                    VStack(alignment: .leading, spacing: 0) {
-                        Text("Search \(selectedOption)")
-                            .font(.system(size: 18))
-                            .fontWeight(.heavy)
-                        
-                        TextField("Search", text: $searchFieldTextValue)
-                            .font(.system(size: 18))
-                            .padding()
-                            .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
-                            .padding(.top, 8)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.top, 24)
-                    
-                    Button {
-                        
-                    } label: {
-                        Text("Search")
-                            .font(.system(size: 18))
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
-                    }.padding(.top, 24)
-                    
-                    
-                    if selectedOption == "Videos DB" {
-                        Button {
-                            showVideosList = true
-                        } label: {
-                            Text("Show Videos List")
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
-                                .padding()
-                                .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
-                        }
+                        .pickerStyle(SegmentedPickerStyle())
                         .padding(.top, 24)
-                    }
-                    Spacer()
-                    
-                    Spacer()
+                        
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("Search \(selectedOption)")
+                                .font(.system(size: 18))
+                                .fontWeight(.heavy)
+                            
+                            TextField("Search by name", text: $searchFieldTextValue)
+                                .font(.system(size: 18))
+                                .padding()
+                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                .padding(.top, 8)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 24)
+                        
+                        NavigationLink(destination: SearchResultsList(), isActive: $showSearchResults) {
+                            Button {
+                                if selectedOption == "API" {
+                                    searchApi()
+                                    
+                                    if foodArray.isEmpty {
+                                        alertTitle = "No Results"
+                                        alertMessage = "No food items found for the given search query."
+                                        showAlert = true
+                                    } else {
+                                        showSearchResults = true
+                                    }
+                                }
+                            } label: {
+                                Text("Search")
+                                    .font(.system(size: 18))
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.white)
+                                    .padding()
+                                    .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
+                            }.padding(.top, 24)
+                        }
+                        
+                        
+                        if selectedOption == "Videos DB" {
+                            Button {
+                                showVideosList = true
+                            } label: {
+                                Text("Show Videos List")
+                                    .font(.system(size: 18))
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.white)
+                                    .padding()
+                                    .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
+                            }
+                            .padding(.top, 24)
+                        }
+                        Spacer()
+                        
+                        Spacer()
+                    }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(.leading, 24)
-                .padding(.trailing, 24)
+                    .padding(.leading, 24)
+                    .padding(.trailing, 24)
+            }
+            .sheet(isPresented: $showVideosList) {
+                VideosList()
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            }
         }
-        .sheet(isPresented: $showVideosList) {
-            VideosList()
-        }
+    }
+    
+    func searchApi() {
+        let foodNameTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        getNutritionDataFromName(name: foodNameTrimmed)
     }
 }
