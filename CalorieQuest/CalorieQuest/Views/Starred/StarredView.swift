@@ -47,7 +47,10 @@ struct StarredView: View {
                 Spacer()
                 
                 Button {
-                    
+                    withAnimation() {
+                        detailsViewSelected = 7
+                        sheetActive = true
+                    }
                 } label: {
                     Image(systemName: "plus")
                         .resizable()
