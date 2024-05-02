@@ -65,7 +65,7 @@ struct ApiResultsDetails: View {
                             .font(.system(size: 18))
                             .fontWeight(.heavy)
                         
-                        if let calorieNutrient = food.nutrients.first(where: { $0.name.lowercased() == "calories" }) {
+                        if let calorieNutrient = nutrientArray.first(where: { $0.name.lowercased() == "calories" }) {
                             Text("\(formatter.string(from: calorieNutrient.amount as NSNumber) ?? "0.0") \(calorieNutrient.unit)")
                                 .font(.system(size: 18))
                                 .fontWeight(.heavy)
@@ -102,16 +102,21 @@ struct ApiResultsDetails: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
                     
-                    // Add more details for other nutrients
-                    ForEach(food.nutrients.filter { $0.name.lowercased() != "calories" }, id: \.name) { nutrient in
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text(nutrient.name.components(separatedBy: " ")
-                                .map { $0.capitalized }
-                                .joined(separator: " "))
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Total Fat")
+                            .font(.system(size: 18))
+                            .fontWeight(.heavy)
+                        
+                        if let calorieNutrient = nutrientArray.first(where: { $0.name.lowercased() == "total fat" }) {
+                            Text("\(formatter.string(from: calorieNutrient.amount as NSNumber) ?? "0.0") \(calorieNutrient.unit)")
                                 .font(.system(size: 18))
                                 .fontWeight(.heavy)
-                            
-                            Text("\(formatter.string(from: nutrient.amount as NSNumber) ?? "0.0") \(nutrient.unit)")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                .padding(.top, 8)
+                        } else {
+                            Text("N/A")
                                 .font(.system(size: 18))
                                 .fontWeight(.heavy)
                                 .frame(maxWidth: .infinity)
@@ -119,9 +124,87 @@ struct ApiResultsDetails: View {
                                 .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                                 .padding(.top, 8)
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, 24)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 24)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Saturated Fat")
+                            .font(.system(size: 18))
+                            .fontWeight(.heavy)
+                        
+                        if let calorieNutrient = nutrientArray.first(where: { $0.name.lowercased() == "saturated fat" }) {
+                            Text("\(formatter.string(from: calorieNutrient.amount as NSNumber) ?? "0.0") \(calorieNutrient.unit)")
+                                .font(.system(size: 18))
+                                .fontWeight(.heavy)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                .padding(.top, 8)
+                        } else {
+                            Text("N/A")
+                                .font(.system(size: 18))
+                                .fontWeight(.heavy)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                .padding(.top, 8)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 24)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Cholesterol")
+                            .font(.system(size: 18))
+                            .fontWeight(.heavy)
+                        
+                        if let calorieNutrient = nutrientArray.first(where: { $0.name.lowercased() == "cholesterol" }) {
+                            Text("\(formatter.string(from: calorieNutrient.amount as NSNumber) ?? "0.0") \(calorieNutrient.unit)")
+                                .font(.system(size: 18))
+                                .fontWeight(.heavy)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                .padding(.top, 8)
+                        } else {
+                            Text("N/A")
+                                .font(.system(size: 18))
+                                .fontWeight(.heavy)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                .padding(.top, 8)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 24)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Sodium")
+                            .font(.system(size: 18))
+                            .fontWeight(.heavy)
+                        
+                        if let calorieNutrient = nutrientArray.first(where: { $0.name.lowercased() == "sodium" }) {
+                            Text("\(formatter.string(from: calorieNutrient.amount as NSNumber) ?? "0.0") \(calorieNutrient.unit)")
+                                .font(.system(size: 18))
+                                .fontWeight(.heavy)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                .padding(.top, 8)
+                        } else {
+                            Text("N/A")
+                                .font(.system(size: 18))
+                                .fontWeight(.heavy)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                .padding(.top, 8)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 24)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 24)
@@ -134,5 +217,21 @@ struct ApiResultsDetails: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+            getNutritionInfo()
+        }
     }
+    
+    private func getNutritionInfo() {
+        if containsOnlyNumbers(food.itemId) {
+            getNutritionDataForCommon(name: food.name)
+        } else {
+            getNutritionDataForBranded(itemId: food.itemId)
+        }
+    }
+    
+    private func containsOnlyNumbers(_ string: String) -> Bool {
+        return string.allSatisfy { $0.isNumber }
+    }
+    
 }
