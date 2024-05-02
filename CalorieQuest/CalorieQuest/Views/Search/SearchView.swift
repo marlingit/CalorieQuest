@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchView: View {
     
     @State private var selectedOption: String = "Database"
-    let options: [String] = ["Database", "API", "Videos"]
+    let options: [String] = ["Database", "API", "Videos DB"]
     
     @State private var searchQuery: String = ""
     
