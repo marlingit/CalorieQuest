@@ -87,82 +87,82 @@ struct FoodDetails: View {
                                .font(.system(size: 18))
                                .fontWeight(.heavy)
                            
-                           Text("25 Grams")
-                               .font(.system(size: 18))
-                               .fontWeight(.heavy)
-                               .frame(maxWidth: .infinity)
-                               .padding()
-                               .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
-                               .padding(.top, 8)
-                       }
-                       .frame(maxWidth: .infinity, alignment: .leading)
-                       .padding(.top, 24)
-                       
-                       VStack(alignment: .leading, spacing: 0) {
-                           Text("Protein")
-                               .font(.system(size: 18))
-                               .fontWeight(.heavy)
-                           
-                           Text("80 Grams")
-                               .font(.system(size: 18))
-                               .fontWeight(.heavy)
-                               .frame(maxWidth: .infinity)
-                               .padding()
-                               .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
-                               .padding(.top, 8)
-                       }
-                       .frame(maxWidth: .infinity, alignment: .leading)
-                       .padding(.top, 24)
-                       
-                       VStack(alignment: .leading, spacing: 0) {
-                           Text("Carbohydrates")
-                               .font(.system(size: 18))
-                               .fontWeight(.heavy)
-                           
-                           Text("40 Grams")
-                               .font(.system(size: 18))
-                               .fontWeight(.heavy)
-                               .frame(maxWidth: .infinity)
-                               .padding()
-                               .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
-                               .padding(.top, 8)
-                       }
-                       .frame(maxWidth: .infinity, alignment: .leading)
-                       .padding(.top, 24)
-                       
-                       VStack(alignment: .leading, spacing: 0) {
-                           Text("Serving Size")
-                               .font(.system(size: 18))
-                               .fontWeight(.heavy)
-                           
-                           Text("20 Grams")
-                               .font(.system(size: 18))
-                               .fontWeight(.heavy)
-                               .frame(maxWidth: .infinity)
-                               .padding()
-                               .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
-                               .padding(.top, 8)
-                       }
-                       .frame(maxWidth: .infinity, alignment: .leading)
-                       .padding(.top, 24)
-                       
-                       HStack {
-                           Spacer()
-                           
-                           Button {
-                               
-                           } label: {
-                               Text("Remove from Favorites")
+                           if let cal = food.nutrients?.first(where: {$0.name.lowercased() == "total fat"}) {
+                               Text("\(formatter.string(from: cal.amount as NSNumber) ?? "0.0") \(cal.unit)")
                                    .font(.system(size: 18))
-                                   .fontWeight(.bold)
-                                   .foregroundStyle(.white)
+                                   .fontWeight(.heavy)
+                                   .frame(maxWidth: .infinity)
                                    .padding()
-                                   .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
-                           }.padding(.top, 24)
-                           
-                           Spacer()
+                                   .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                   .padding(.top, 8)
+                           }
                            
                        }
+                       .frame(maxWidth: .infinity, alignment: .leading)
+                       .padding(.top, 24)
+                       
+                       VStack(alignment: .leading, spacing: 0) {
+                           Text("Saturated Fat")
+                               .font(.system(size: 18))
+                               .fontWeight(.heavy)
+                           
+                           if let cal = food.nutrients?.first(where: {$0.name.lowercased() == "saturated fat"}) {
+                               Text("\(formatter.string(from: cal.amount as NSNumber) ?? "0.0") \(cal.unit)")
+                                   .font(.system(size: 18))
+                                   .fontWeight(.heavy)
+                                   .frame(maxWidth: .infinity)
+                                   .padding()
+                                   .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                   .padding(.top, 8)
+                           }
+                           
+                           
+                           
+                       }
+                       .frame(maxWidth: .infinity, alignment: .leading)
+                       .padding(.top, 24)
+                       
+                       VStack(alignment: .leading, spacing: 0) {
+                           Text("Cholesterol")
+                               .font(.system(size: 18))
+                               .fontWeight(.heavy)
+                           
+                           if let cal = food.nutrients?.first(where: {$0.name.lowercased() == "cholesterol"}) {
+                               Text("\(formatter.string(from: cal.amount as NSNumber) ?? "0.0") \(cal.unit)")
+                                   .font(.system(size: 18))
+                                   .fontWeight(.heavy)
+                                   .frame(maxWidth: .infinity)
+                                   .padding()
+                                   .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                   .padding(.top, 8)
+                           }
+                           
+                           
+                           
+                       }
+                       .frame(maxWidth: .infinity, alignment: .leading)
+                       .padding(.top, 24)
+                       
+                       VStack(alignment: .leading, spacing: 0) {
+                           Text("Sodium")
+                               .font(.system(size: 18))
+                               .fontWeight(.heavy)
+                           
+                           if let cal = food.nutrients?.first(where: {$0.name.lowercased() == "sodium"}) {
+                               Text("\(formatter.string(from: cal.amount as NSNumber) ?? "0.0") \(cal.unit)")
+                                   .font(.system(size: 18))
+                                   .fontWeight(.heavy)
+                                   .frame(maxWidth: .infinity)
+                                   .padding()
+                                   .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                   .padding(.top, 8)
+                           }
+                           
+                           
+                           
+                       }
+                       .frame(maxWidth: .infinity, alignment: .leading)
+                       .padding(.top, 24)
                        
                    }.frame(maxWidth: .infinity, alignment: .leading)
                        .padding(.leading, 24)
