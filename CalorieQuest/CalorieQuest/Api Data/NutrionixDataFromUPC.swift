@@ -196,6 +196,8 @@ public func getNutritionDataFromUPC(upc: String) {
             // Create the foodItem instance with the extracted data
             foodItem = FoodStruct(name: food_name, itemId: food_id, imageUrl: photo_url, servingSize: servingSize, servingUnit: servingUnit, nutrients: nutrients)
             
+            print(foodItem)
+            
         } catch {
             semaphore.signal()
             return
