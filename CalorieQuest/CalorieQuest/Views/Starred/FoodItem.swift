@@ -10,7 +10,11 @@ import SwiftUI
 struct FoodItem: View {
     let food: Food
     var body: some View {
-        HStack(spacing: 0) {
+        
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 1
+        
+        return HStack(spacing: 0) {
             getImageFromUrl(url: food.imageUrl, defaultFilename: "ImageUnavailable")
                 .resizable()
                 .frame(width: 100, height: 75)
@@ -21,7 +25,7 @@ struct FoodItem: View {
                 Text(food.name)
                     .font(.system(size: 18))
                     .fontWeight(.bold)
-                Text("\(food.servingSize) \(food.servingUnit)")
+                Text("\(formatter.string(from: food.servingSize as NSNumber) ?? "0.0") \(food.servingUnit)")
                     .font(.system(size: 15))
                     .fontWeight(.medium)
                     .padding(.top, 4)

@@ -16,11 +16,22 @@ struct StarredView: View {
     @State private var toBeDeleted: IndexSet?
     @State private var showConfirmation = false
     
+    @State var isEditing = false
+    
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 0) {
                 
-                EditButton()
+                Button {
+                    self.isEditing.toggle()
+                } label: {
+                    Image(systemName: "trash")
+                        .resizable()
+                        .scaledToFit()
+                        .fontWeight(.heavy)
+                        .foregroundStyle(.black)
+                        .frame(width: 25)
+                }
                 .padding(.top, 4)
                 
                 Spacer()
@@ -77,6 +88,7 @@ struct StarredView: View {
                     }
                     .onDelete(perform: delete)
                 }
+                .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive)).animation(Animation.spring())
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.leading, 24)
                 .padding(.trailing, 12)
