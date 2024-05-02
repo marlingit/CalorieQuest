@@ -18,12 +18,13 @@ fileprivate var previousQuery = ""
 public func getNutritionDataForCommon(name: String) {
     
     // Check if the name has already been processed
+    /*
     if name == previousQuery {
         return
     } else {
         previousQuery = name
     }
-    
+    */
     nutrientArray = [NutrientStruct]()
     
     // Construct the API query URL
@@ -88,8 +89,6 @@ public func getNutritionDataForCommon(name: String) {
                 return
             }
             
-            print(jsonDataDictionary)
-            
             // Extract the foods array from the JSON
             var foodsJsonArray = [Any]()
             if let jArray = jsonDataDictionary["foods"] as? [Any] {
@@ -98,7 +97,6 @@ public func getNutritionDataForCommon(name: String) {
                 semaphore.signal()
                 return
             }
-            
             // Extract the first food item from the array
             var foodsJsonObject = [String: Any]()
             if let jObject = foodsJsonArray[0] as? [String: Any] {
