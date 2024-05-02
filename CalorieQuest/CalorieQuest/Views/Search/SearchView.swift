@@ -17,6 +17,8 @@ struct SearchView: View {
     
     @State private var showAlert = false
     @State private var showSearchResults = false
+    @State private var showApiSearchResults = false
+    @State private var showDatabaseSearchResults = false
     
     @State private var showVideosList = false
     
@@ -80,7 +82,14 @@ struct SearchView: View {
                         if inputDataValidated() {
                             if selectedOption == "Database" {
                                 searchDB()
-                                searchCompleted = true
+                                if databaseSearchResults.isEmpty {
+                                    alertTitle = "No Results"
+                                    alertMessage = "No food items found for the given search query."
+                                }
+                                else {
+                                    showDatabaseSearchResults = true
+                                    
+                                }
                             }
                             if selectedOption == "API" {
                                 searchApi()
@@ -90,7 +99,7 @@ struct SearchView: View {
                                     alertMessage = "No food items found for the given search query."
                                     showAlert = true
                                 } else {
-                                    showSearchResults = true
+                                    showApiSearchResults = true
                                 }
                             }
                         } else {
@@ -125,17 +134,23 @@ struct SearchView: View {
                     }
                 }
             }
-                        
-                        
+            
+            
         }
         .sheet(isPresented: $showVideosList) {
             VideosList()
         }
+        .sheet(isPresented: $showApiSearchResults) {
+            ApiResultsList(foodArray: foodArray)
+        }
+        .sheet(isPresented: $showApiSearchResults) {
+            DatabaseResultsList(foodArray: databaseSearchResults)
+        }
         .alert(alertTitle, isPresented: $showAlertMessage, actions: {
             Button("OK") {}
-          }, message: {
+        }, message: {
             Text(alertMessage)
-          })
+        })
     }
     
     /*
@@ -150,12 +165,12 @@ struct SearchView: View {
         
         searchQuery = queryTrimmed
         
-
+        
         // Public function conductDatabaseSearch is given in DatabaseSearch.swift
         conductDatabaseSearch()
     }
-                        
-     func searchApi() {
+    
+    func searchApi() {
         let foodNameTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
         getNutritionDataFromName(name: foodNameTrimmed)
     }
