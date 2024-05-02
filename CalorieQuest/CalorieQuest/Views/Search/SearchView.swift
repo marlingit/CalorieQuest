@@ -15,43 +15,48 @@ struct SearchView: View {
     @State private var searchFieldTextValue: String = ""
     @State private var searchCompleted = false
     
+    @State private var showAlert = false
+    @State private var showSearchResults = false
+    
     @State private var showVideosList = false
     
     @State private var showAlertMessage = false
     
     var body: some View {
-        VStack {
-            
-            HStack(alignment: .top, spacing: 0) {
+        NavigationStack {
+            VStack {
                 
-                Spacer()
-                
-                Text("Search")
-                    .foregroundStyle(.black)
-                    .font(.custom("Urbanist", size: 24))
-                    .fontWeight(.heavy)
-                
-                Spacer()
-            }.frame(maxWidth: .infinity)
-                .padding(.leading, 24)
-                .padding(.trailing, 24)
-                .padding(.top, 12)
-            
-            ScrollView {
-                VStack(spacing: 0) {
+                HStack(alignment: .top, spacing: 0) {
+                    
                     Spacer()
-                    Image(selectedOption == "Database" ? "DatabaseSearchImage" :
-                            selectedOption == "API" ? "ApiSearchImage" :
-                            "VideoSearchImage")
-                    .resizable()
-                    .frame(width: 150, height: 150)
-                    .mask(Circle())
-                    .background(Color.black.opacity(0.25).mask(Circle()))
-                    Picker("Choose an option", selection: $selectedOption) {
-                        ForEach(options, id: \.self) { option in
-                            Text(option)
-                                .font(.custom("Urbanist", size: 18))
-                                .fontWeight(.bold)
+                    
+                    Text("Search")
+                        .foregroundStyle(.black)
+                        .font(.custom("Urbanist", size: 24))
+                        .fontWeight(.heavy)
+                    
+                    Spacer()
+                }.frame(maxWidth: .infinity)
+                    .padding(.leading, 24)
+                    .padding(.trailing, 24)
+                    .padding(.top, 12)
+                
+                ScrollView {
+                    VStack(spacing: 0) {
+                        Spacer()
+                        Image(selectedOption == "Database" ? "DatabaseSearchImage" :
+                                selectedOption == "API" ? "ApiSearchImage" :
+                                "VideoSearchImage")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                        .mask(Circle())
+                        .background(Color.black.opacity(0.25).mask(Circle()))
+                        Picker("Choose an option", selection: $selectedOption) {
+                            ForEach(options, id: \.self) { option in
+                                Text(option)
+                                    .font(.custom("Urbanist", size: 18))
+                                    .fontWeight(.bold)
+                            }
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
@@ -77,6 +82,17 @@ struct SearchView: View {
                                 searchDB()
                                 searchCompleted = true
                             }
+                            if selectedOption == "API" {
+                                searchApi()
+                                
+                                if foodArray.isEmpty {
+                                    alertTitle = "No Results"
+                                    alertMessage = "No food items found for the given search query."
+                                    showAlert = true
+                                } else {
+                                    showSearchResults = true
+                                }
+                            }
                         } else {
                             showAlertMessage = true
                             alertTitle = "Missing Input Data!"
@@ -100,15 +116,44 @@ struct SearchView: View {
                                 .font(.system(size: 18))
                                 .fontWeight(.bold)
                                 .foregroundStyle(.white)
-                                .padding()
-                                .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
-                        }
-                        .padding(.top, 24)
-                    }
-                    Spacer()
+                    }.padding(.top, 24)
                     
-                    Spacer()
-                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                    if selectedOption == "Videos DB" {
+                        Button {
+                            showVideosList = true
+                        } label: {
+                            Text("Show Videos List")
+                                .font(.system(size: 18))
+                                .fontWeight(.bold)
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                .padding(.top, 8)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 24)
+                        
+                        NavigationLink(destination: SearchResultsList(), isActive: $showSearchResults) {
+                            Button {
+                                if selectedOption == "API" {
+                                    searchApi()
+                                    
+                                    if foodArray.isEmpty {
+                                        alertTitle = "No Results"
+                                        alertMessage = "No food items found for the given search query."
+                                        showAlert = true
+                                    } else {
+                                        showSearchResults = true
+                                    }
+                                }
+                            } label: {
+                                Text("Search")
+                                    .font(.system(size: 18))
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.white)
+                                    .padding()
+                                    .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.leading, 24)
                 .padding(.trailing, 24)
@@ -139,6 +184,33 @@ struct SearchView: View {
         // Public function conductDatabaseSearch is given in DatabaseSearch.swift
         conductDatabaseSearch()
     }
+    
+    /*
+     ---------------------------
+     MARK: Input Data Validation
+     ---------------------------
+     */
+    func inputDataValidated() -> Bool {
+        // Remove spaces, if any, at the beginning and at the end of the entered search query string
+        let queryTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        if queryTrimmed.isEmpty {
+            return false
+        }
+        return true
+        let queryTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        
+        searchQuery = queryTrimmed
+        
+
+        // Public function conductDatabaseSearch is given in DatabaseSearch.swift
+        conductDatabaseSearch()
+    }
+                        
+ func searchApi() {
+                            let foodNameTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
+                            getNutritionDataFromName(name: foodNameTrimmed)
+                        }
     
     /*
      ---------------------------
