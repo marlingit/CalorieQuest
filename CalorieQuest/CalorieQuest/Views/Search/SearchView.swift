@@ -126,10 +126,9 @@ struct SearchView: View {
                                 .fontWeight(.bold)
                                 .foregroundStyle(.white)
                                 .padding()
-                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
-                                .padding(.top, 8)
+                                .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
+                                .fixedSize(horizontal: true, vertical: false)
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.top, 24)
                     }
                 }
@@ -184,4 +183,8 @@ struct SearchView: View {
         }
         return true
     }
+}
+
+#Preview {
+    SearchView()
 }
