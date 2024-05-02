@@ -20,6 +20,8 @@ struct SettingsView: View {
     
     @AppStorage("gender") var gender: String = ""
     
+    @State private var showAlert = false
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top, spacing: 0) {
@@ -97,11 +99,13 @@ struct SettingsView: View {
                             .font(.system(size: 18))
                             .fontWeight(.heavy)
                         
-                        TextField("Gender", text: $gender)
-                            .font(.system(size: 18))
-                            .padding()
-                            .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
-                            .padding(.top, 8)
+                        Picker("Gender", selection: $gender) {
+                            Text("Male").tag("Male")
+                            Text("Female").tag("Female")
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.top, 8)
+                        
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -142,6 +146,7 @@ struct SettingsView: View {
                             UserDefaults.standard.set(weight, forKey: "weight")
                             UserDefaults.standard.set(firstname, forKey: "firstname")
                             UserDefaults.standard.set(lastname, forKey: "lastname")
+                            showAlert = true // Show the alert after saving data
                         } label: {
                             Text("Save")
                                 .font(.system(size: 18))
@@ -161,6 +166,14 @@ struct SettingsView: View {
                     .padding(.top, 24)
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.top, 12)
+            
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Changes Saved"),
+                    message: Text("Your settings have been successfully saved."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
             
             Spacer()
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
