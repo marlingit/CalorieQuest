@@ -14,6 +14,7 @@ struct SearchView: View {
     
     @State private var searchFieldTextValue: String = ""
     
+    @State private var showVideosList = false
     var body: some View {
         VStack {
             
@@ -77,6 +78,20 @@ struct SearchView: View {
                             .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
                     }.padding(.top, 24)
                     
+                    
+                    if selectedOption == "Videos DB" {
+                        Button {
+                            showVideosList = true
+                        } label: {
+                            Text("Show Videos List")
+                                .font(.system(size: 18))
+                                .fontWeight(.bold)
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
+                        }
+                        .padding(.top, 24)
+                    }
                     Spacer()
                     
                     Spacer()
@@ -84,6 +99,9 @@ struct SearchView: View {
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.leading, 24)
                 .padding(.trailing, 24)
+        }
+        .sheet(isPresented: $showVideosList) {
+            VideosList()
         }
     }
 }
