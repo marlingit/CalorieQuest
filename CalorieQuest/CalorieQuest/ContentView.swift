@@ -76,7 +76,7 @@ struct ContentView: View {
             } else if detailsViewSelected == 7 {
                 
             } else if detailsViewSelected == 8 {
-//                FoodDetails(detailsViewSelected: $detailsViewSelected, sheetActive: $sheetActive)
+                FoodDetails(detailsViewSelected: $detailsViewSelected, sheetActive: $sheetActive)
             }
         }
     }

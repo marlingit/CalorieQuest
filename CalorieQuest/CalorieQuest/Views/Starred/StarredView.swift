@@ -64,7 +64,13 @@ struct StarredView: View {
             NavigationStack {
                 List {
                     ForEach(listOfAllFoodsInDatabase) { aFood in
-                        NavigationLink(destination: EmptyView()) {
+                        Button {
+                            withAnimation() {
+                                detailsViewSelected = 8
+                                sheetActive = true
+                            }
+                            food = aFood
+                        } label: {
                             FoodItem(food: aFood)
                                 .alert(isPresented: $showConfirmation) {
                                     Alert(title: Text("Delete Confirmation"),
@@ -88,6 +94,7 @@ struct StarredView: View {
                                 )
                             }   // End of alert
                         }
+                        .foregroundStyle(.black)
                         
                     }
                     .onDelete(perform: delete)

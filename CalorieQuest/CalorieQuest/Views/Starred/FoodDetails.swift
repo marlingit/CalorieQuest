@@ -10,15 +10,17 @@ import SwiftUI
 
 struct FoodDetails: View {
     
-    let food: Food
-    
     @Binding var detailsViewSelected: Int
-       @Binding var sheetActive: Bool
+    @Binding var sheetActive: Bool
        
        var body: some View {
-           VStack(spacing: 0) {
+           
+           let formatter = NumberFormatter()
+           formatter.maximumFractionDigits = 1
+           
+           return VStack(spacing: 0) {
                HStack(alignment: .top, spacing: 0) {
-                   Text("Item Name")
+                   Text(food.name)
                        .foregroundStyle(.black)
                        .font(.custom("Urbanist", size: 24))
                        .fontWeight(.heavy)
@@ -50,7 +52,8 @@ struct FoodDetails: View {
                                .font(.system(size: 18))
                                .fontWeight(.heavy)
                            
-                           Image("")
+                           getImageFromUrl(url: food.imageUrl, defaultFilename: "ImageUnavailable")
+                               .resizable()
                                .frame(width: 300, height: 175)
                                .padding()
                                .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
@@ -63,13 +66,17 @@ struct FoodDetails: View {
                                .font(.system(size: 18))
                                .fontWeight(.heavy)
                            
-                           Text("140 Calories")
-                               .font(.system(size: 18))
-                               .fontWeight(.heavy)
-                               .frame(maxWidth: .infinity)
-                               .padding()
-                               .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
-                               .padding(.top, 8)
+                           if let cal = food.nutrients?.first(where: {$0.name.lowercased() == "calories"}) {
+                               Text("\(formatter.string(from: cal.amount as NSNumber) ?? "0.0") \(cal.unit)")
+                                   .font(.system(size: 18))
+                                   .fontWeight(.heavy)
+                                   .frame(maxWidth: .infinity)
+                                   .padding()
+                                   .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                   .padding(.top, 8)
+                           }
+                           
+                           
                            
                        }
                        .frame(maxWidth: .infinity, alignment: .leading)

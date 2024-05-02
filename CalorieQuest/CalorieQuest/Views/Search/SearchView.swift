@@ -13,8 +13,12 @@ struct SearchView: View {
     let options: [String] = ["Database", "API", "Videos DB"]
     
     @State private var searchFieldTextValue: String = ""
+    @State private var searchCompleted = false
     
     @State private var showVideosList = false
+    
+    @State private var showAlertMessage = false
+    
     var body: some View {
         VStack {
             
@@ -68,7 +72,16 @@ struct SearchView: View {
                     .padding(.top, 24)
                     
                     Button {
-                        
+                        if inputDataValidated() {
+                            if selectedOption == "Database" {
+                                searchDB()
+                                searchCompleted = true
+                            }
+                        } else {
+                            showAlertMessage = true
+                            alertTitle = "Missing Input Data!"
+                            alertMessage = "Please enter a database search query!"
+                        }
                     } label: {
                         Text("Search")
                             .font(.system(size: 18))
@@ -103,5 +116,41 @@ struct SearchView: View {
         .sheet(isPresented: $showVideosList) {
             VideosList()
         }
+        .alert(alertTitle, isPresented: $showAlertMessage, actions: {
+            Button("OK") {}
+          }, message: {
+            Text(alertMessage)
+          })
+    }
+    
+    /*
+     ---------------------
+     MARK: Search Database
+     ---------------------
+     */
+    func searchDB() {
+        // Remove spaces, if any, at the beginning and at the end of the entered search query string
+        let queryTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        
+        searchQuery = queryTrimmed
+        
+
+        // Public function conductDatabaseSearch is given in DatabaseSearch.swift
+        conductDatabaseSearch()
+    }
+    
+    /*
+     ---------------------------
+     MARK: Input Data Validation
+     ---------------------------
+     */
+    func inputDataValidated() -> Bool {
+        // Remove spaces, if any, at the beginning and at the end of the entered search query string
+        let queryTrimmed = searchFieldTextValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        if queryTrimmed.isEmpty {
+            return false
+        }
+        return true
     }
 }
