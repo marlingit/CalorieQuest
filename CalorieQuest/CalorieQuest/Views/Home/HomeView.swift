@@ -291,7 +291,7 @@ struct HomeView: View {
                 }
             }
         }
-        
+        UserDefaults.standard.set(count, forKey: "caloriesCurrent")
         return formatter.string(from: count as NSNumber) ?? "0.0"
     }
     
