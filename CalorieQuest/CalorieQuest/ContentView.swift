@@ -77,6 +77,8 @@ struct ContentView: View {
                 AddFavoriteFoodView(detailsViewSelected: $detailsViewSelected, sheetActive: $sheetActive)
             } else if detailsViewSelected == 8 {
                 FoodDetails(detailsViewSelected: $detailsViewSelected, sheetActive: $sheetActive)
+            } else if detailsViewSelected == 9 {
+                PDFDocView(detailsViewSelected: $detailsViewSelected, sheetActive: $sheetActive)
             }
         }
     }

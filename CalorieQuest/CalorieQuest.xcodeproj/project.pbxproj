@@ -26,6 +26,7 @@
 		8CE87D232BE3350200168A44 /* NotFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D222BE3350200168A44 /* NotFound.swift */; };
 		8CE87D262BE3356F00168A44 /* ScanQRBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D252BE3356F00168A44 /* ScanQRBarcode.swift */; };
 		8CE87D282BE33DBF00168A44 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D272BE33DBE00168A44 /* WebView.swift */; };
+		8CE87D2A2BE47DBE00168A44 /* PDFDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D292BE47DBE00168A44 /* PDFDocView.swift */; };
 		D237DC732BE1F27B00675576 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC722BE1F27B00675576 /* Globals.swift */; };
 		D237DC792BE1F54C00675576 /* ScanFocusRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC782BE1F54C00675576 /* ScanFocusRegion.swift */; };
 		D237DC7B2BE1F56000675576 /* FlashlightButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC7A2BE1F56000675576 /* FlashlightButtonView.swift */; };
@@ -85,6 +86,7 @@
 		8CE87D222BE3350200168A44 /* NotFound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotFound.swift; sourceTree = "<group>"; };
 		8CE87D252BE3356F00168A44 /* ScanQRBarcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanQRBarcode.swift; sourceTree = "<group>"; };
 		8CE87D272BE33DBE00168A44 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		8CE87D292BE47DBE00168A44 /* PDFDocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDocView.swift; sourceTree = "<group>"; };
 		D237DC722BE1F27B00675576 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		D237DC782BE1F54C00675576 /* ScanFocusRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanFocusRegion.swift; sourceTree = "<group>"; };
 		D237DC7A2BE1F56000675576 /* FlashlightButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashlightButtonView.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				D237DC8A2BE2F42B00675576 /* DailyGoalView.swift */,
 				8CE87D1C2BE333D400168A44 /* AddManuallyView.swift */,
 				8CE87D1E2BE333DF00168A44 /* SettingsView.swift */,
+				8CE87D292BE47DBE00168A44 /* PDFDocView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				D237DCA92BE2F43800675576 /* RoundedCorners.swift in Sources */,
 				D237DC832BE1F9F400675576 /* NutrionixDataFromUPC.swift in Sources */,
 				D237DC992BE2F42D00675576 /* DailyGoalView.swift in Sources */,
+				8CE87D2A2BE47DBE00168A44 /* PDFDocView.swift in Sources */,
 				D237DCC12BE3F02100675576 /* ApiDataModel.swift in Sources */,
 				D237DC9F2BE2F42D00675576 /* HomeView.swift in Sources */,
 			);

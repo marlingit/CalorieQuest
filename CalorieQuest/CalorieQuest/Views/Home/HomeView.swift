@@ -144,7 +144,9 @@ struct HomeView: View {
                         Spacer()
                         
                         Button {
-                            
+                            withAnimation() {
+                                
+                            }
                         } label: {
                             HStack(spacing: 0) {
                                 Image(systemName: "doc.text.fill")
