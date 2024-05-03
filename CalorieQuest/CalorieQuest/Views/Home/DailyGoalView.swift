@@ -79,6 +79,7 @@ struct DailyGoalView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
@@ -92,6 +93,7 @@ struct DailyGoalView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -106,6 +108,7 @@ struct DailyGoalView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -120,6 +123,7 @@ struct DailyGoalView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
