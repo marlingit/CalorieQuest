@@ -376,7 +376,7 @@ struct AddManuallyView: View {
             sodiumNutrient.foods?.append(newFood)
             
             let carbNutrient = Nutrient(
-                name: "carbohydrate",
+                name: "total carbohydrate",
                 amount: Double(carbohydrates)!,
                 unit: "g",
                 foods: [Food]()

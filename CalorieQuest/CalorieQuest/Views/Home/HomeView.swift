@@ -257,6 +257,7 @@ struct HomeView: View {
         }
         .onAppear {
             caloriesCurrent = calcCurrent()
+            currentDay = getDay(aDate: currentDate)
         }
     }
     
