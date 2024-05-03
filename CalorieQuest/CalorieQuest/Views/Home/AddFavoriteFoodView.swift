@@ -13,7 +13,7 @@ struct AddFavoriteFoodView: View {
     @Binding var detailsViewSelected: Int
     @Binding var sheetActive: Bool
     
-    @State var foodName: String = ""
+    @State var foodName: String = "" 
     @State var calories: String = ""
     
     @State var fat: String = ""

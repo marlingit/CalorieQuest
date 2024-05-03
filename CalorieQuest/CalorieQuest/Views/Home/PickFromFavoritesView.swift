@@ -15,7 +15,7 @@ fileprivate let selectCategories = ["Breakfast", "Lunch", "Dinner", "Snack"]
 struct PickFromFavoritesView: View {
     
     @Environment(\.modelContext) private var modelContext
-    @Query(FetchDescriptor<Food>(sortBy: [SortDescriptor(\Food.name, order: .forward)])) private var listOfAllFavoriteFoods: [Food]
+    @Query(FetchDescriptor<Food>(sortBy: [SortDescriptor(\Food.name, order: .forward)])) private var listOfAllFavoriteFoods: [Food] 
     
     @Binding var detailsViewSelected: Int
     @Binding var sheetActive: Bool
