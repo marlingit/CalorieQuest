@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -293,8 +293,6 @@
 				8CE87D1C2BE333D400168A44 /* AddManuallyView.swift */,
 				8CE87D1E2BE333DF00168A44 /* SettingsView.swift */,
 				8CE87D292BE47DBE00168A44 /* PDFDocView.swift */,
-				D201FD532BE48D480053FEBA /* AddFavoriteFoodView.swift */,
-				D201FD552BE48D670053FEBA /* PickFromFavoritesView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -379,7 +377,7 @@
 				};
 			};
 			buildConfigurationList = 8C5229712BDB2608008FA34F /* Build configuration list for PBXProject "CalorieQuest" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (

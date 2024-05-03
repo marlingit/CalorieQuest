@@ -12,7 +12,7 @@ fileprivate let selectCategories = ["Breakfast", "Lunch", "Dinner", "Snack"]
 
 
 struct AddManuallyView: View {
-    
+    @AppStorage("caloriesCurrent") private var caloriesCurrent: String = "0"
     @Environment(\.modelContext) private var modelContext
     
     @Binding var detailsViewSelected: Int
@@ -112,10 +112,10 @@ struct AddManuallyView: View {
                                 Text(selectCategories[$0])
                             }
                         }
-                            .font(.system(size: 18))
-                            .padding()
-                            .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
-                            .padding(.top, 8)
+                        .font(.system(size: 18))
+                        .padding()
+                        .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                        .padding(.top, 8)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -130,6 +130,7 @@ struct AddManuallyView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -144,6 +145,7 @@ struct AddManuallyView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -158,6 +160,7 @@ struct AddManuallyView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -172,6 +175,7 @@ struct AddManuallyView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -186,6 +190,7 @@ struct AddManuallyView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -200,6 +205,7 @@ struct AddManuallyView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -333,7 +339,7 @@ struct AddManuallyView: View {
             let calNutrient = Nutrient(
                 name: "calories",
                 amount: Double(calories)!,
-                unit: "cal", 
+                unit: "cal",
                 foods: [Food]()
             )
             
@@ -473,6 +479,22 @@ struct AddManuallyView: View {
             newFood.nutrients?.append(sodiumNutrient)
             newFood.nutrients?.append(calNutrient)
         }
+        
+        var totalCaloriesConsumed: Double = 0.0
+        dayArray.forEach { day in
+            day.tracked?.forEach { tracked in
+                tracked.foods?.forEach { food in
+                    food.nutrients?.forEach { nutrient in
+                        if nutrient.name == "calories" {
+                            totalCaloriesConsumed += nutrient.amount
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Update the caloriesCurrent value
+        caloriesCurrent = String(format: "%.0f", totalCaloriesConsumed)
         
         do {
             try modelContext.save()
