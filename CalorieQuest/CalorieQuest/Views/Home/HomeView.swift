@@ -16,6 +16,9 @@ struct HomeView: View {
     @AppStorage("caloriesCurrent") var caloriesCurrent: String = "0"
     @AppStorage("lastResetDateString") var lastResetDateString: String = ""
     
+    @Binding var detailsViewSelected: Int
+    @Binding var sheetActive: Bool
+    
     var lastResetDate: Date {
         guard !lastResetDateString.isEmpty else {
             return Date()
@@ -145,7 +148,8 @@ struct HomeView: View {
                         
                         Button {
                             withAnimation() {
-                                
+                                detailsViewSelected = 9
+                                sheetActive = true
                             }
                         } label: {
                             HStack(spacing: 0) {

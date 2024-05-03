@@ -30,7 +30,7 @@ struct ContentView: View {
                         StarredView(detailsViewSelected: $detailsViewSelected, sheetActive: $sheetActive)
                             .tag(0)
                         
-                        HomeView(profileBottomSheetActive: $profileBottomSheetActive, trackBottomSheetActive: $trackBottomSheetActive)
+                        HomeView(detailsViewSelected: $detailsViewSelected, sheetActive: $sheetActive, profileBottomSheetActive: $profileBottomSheetActive, trackBottomSheetActive: $trackBottomSheetActive)
                             .tag(1)
                         
                         SearchView()
