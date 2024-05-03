@@ -27,6 +27,8 @@
 		8CE87D262BE3356F00168A44 /* ScanQRBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D252BE3356F00168A44 /* ScanQRBarcode.swift */; };
 		8CE87D282BE33DBF00168A44 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D272BE33DBE00168A44 /* WebView.swift */; };
 		8CE87D2A2BE47DBE00168A44 /* PDFDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D292BE47DBE00168A44 /* PDFDocView.swift */; };
+		8CE87D2C2BE48EC300168A44 /* AddFavoriteFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D2B2BE48EC300168A44 /* AddFavoriteFoodView.swift */; };
+		8CE87D2E2BE48EF400168A44 /* PickFromFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE87D2D2BE48EF400168A44 /* PickFromFavoritesView.swift */; };
 		D237DC732BE1F27B00675576 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC722BE1F27B00675576 /* Globals.swift */; };
 		D237DC792BE1F54C00675576 /* ScanFocusRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC782BE1F54C00675576 /* ScanFocusRegion.swift */; };
 		D237DC7B2BE1F56000675576 /* FlashlightButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237DC7A2BE1F56000675576 /* FlashlightButtonView.swift */; };
@@ -87,6 +89,8 @@
 		8CE87D252BE3356F00168A44 /* ScanQRBarcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanQRBarcode.swift; sourceTree = "<group>"; };
 		8CE87D272BE33DBE00168A44 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		8CE87D292BE47DBE00168A44 /* PDFDocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDocView.swift; sourceTree = "<group>"; };
+		8CE87D2B2BE48EC300168A44 /* AddFavoriteFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteFoodView.swift; sourceTree = "<group>"; };
+		8CE87D2D2BE48EF400168A44 /* PickFromFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickFromFavoritesView.swift; sourceTree = "<group>"; };
 		D237DC722BE1F27B00675576 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		D237DC782BE1F54C00675576 /* ScanFocusRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanFocusRegion.swift; sourceTree = "<group>"; };
 		D237DC7A2BE1F56000675576 /* FlashlightButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashlightButtonView.swift; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				D237DC902BE2F42D00675576 /* StarredView.swift */,
 				D237DC982BE2F42D00675576 /* FoodItem.swift */,
 				8CE87D1A2BE3277000168A44 /* FoodDetails.swift */,
+				8CE87D2B2BE48EC300168A44 /* AddFavoriteFoodView.swift */,
+				8CE87D2D2BE48EF400168A44 /* PickFromFavoritesView.swift */,
 			);
 			path = Starred;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 				D237DCAB2BE2F43800675576 /* BottomSheet.swift in Sources */,
 				D237DCAA2BE2F43800675576 /* ActivityRing.swift in Sources */,
 				8CE87D1F2BE333DF00168A44 /* SettingsView.swift in Sources */,
+				8CE87D2C2BE48EC300168A44 /* AddFavoriteFoodView.swift in Sources */,
 				D237DCA42BE2F42D00675576 /* BMIView.swift in Sources */,
 				D237DCA12BE2F42D00675576 /* CreateAccountView.swift in Sources */,
 				D237DC812BE1F59B00675576 /* ScannerViewControl.swift in Sources */,
@@ -428,6 +435,7 @@
 				D237DC9D2BE2F42D00675576 /* SearchView.swift in Sources */,
 				D237DCCE2BE3F2A300675576 /* DatabaseResultsDetails.swift in Sources */,
 				D237DCA22BE2F42D00675576 /* LoginView.swift in Sources */,
+				8CE87D2E2BE48EF400168A44 /* PickFromFavoritesView.swift in Sources */,
 				8CE87D282BE33DBF00168A44 /* WebView.swift in Sources */,
 				8CE87D262BE3356F00168A44 /* ScanQRBarcode.swift in Sources */,
 				D237DC7D2BE1F57700675576 /* BarcodeScanner.swift in Sources */,

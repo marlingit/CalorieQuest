@@ -13,11 +13,12 @@ struct HomeView: View {
     @AppStorage("firstname") var firstName: String = ""
     
     @AppStorage("calorieTarget") var calorieTarget: String = "Set Goal"
-    @AppStorage("caloriesCurrent") var caloriesCurrent: String = "0"
     @AppStorage("lastResetDateString") var lastResetDateString: String = ""
     
     @Binding var detailsViewSelected: Int
     @Binding var sheetActive: Bool
+    
+    @State private var caloriesCurrent = ""
     
     var lastResetDate: Date {
         guard !lastResetDateString.isEmpty else {
@@ -246,7 +247,6 @@ struct HomeView: View {
                     .padding(.top, 24)
                     .onChange(of: currentDate) { _ in
                         if !Calendar.current.isDate(lastResetDate, inSameDayAs: currentDate) {
-                            caloriesCurrent = "0"
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "yyyy-MM-dd"
                             lastResetDateString = dateFormatter.string(from: currentDate)
@@ -254,6 +254,9 @@ struct HomeView: View {
                     }
                 
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .onAppear {
+            caloriesCurrent = calcCurrent()
         }
     }
     
@@ -270,6 +273,28 @@ struct HomeView: View {
         return Day(date: "", tracked: [Tracked]())
     }
     
+    func calcCurrent() -> String {
+        let day = getDay(aDate: Date())
+        var count = 0.0
+        
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 1
+        
+        for aTracked in day.tracked ?? [Tracked]() {
+            for aFood in aTracked.foods ?? [Food]() {
+                if let cal = aFood.nutrients!.first(where: { $0.name.lowercased() == "calories"}) {
+                    if cal.unit == "kcal" {
+                        count += cal.amount / 1000
+                    } else {
+                        count += cal.amount
+                    }
+                }
+            }
+        }
+        
+        return formatter.string(from: count as NSNumber) ?? "0.0"
+    }
+    
     var historyView: some View {
         
         let formatter = NumberFormatter()
@@ -278,6 +303,7 @@ struct HomeView: View {
         
         
         return LazyVStack {
+            Text(calcCurrent())
             ForEach(currentDay.tracked!.sorted(by: { $0.time < $1.time }), id: \.self) { aTracked in
                 Text(aTracked.time)
                 VStack {

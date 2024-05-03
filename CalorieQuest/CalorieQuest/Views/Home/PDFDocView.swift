@@ -14,8 +14,6 @@ struct PDFDocView: View {
     @Binding var detailsViewSelected: Int
     @Binding var sheetActive: Bool
     
-    let day: Day
-    
     @State private var showAlertMessage = false
     
     var body: some View {
