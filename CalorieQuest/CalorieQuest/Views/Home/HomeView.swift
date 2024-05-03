@@ -253,7 +253,7 @@ struct HomeView: View {
         }
     }
     
-    func getDay() -> Day {
+    func getDay(aDate: Date) -> Day {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
