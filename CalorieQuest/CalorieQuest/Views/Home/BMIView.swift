@@ -31,7 +31,7 @@ struct BMIView: View {
                 Button {
                     // Add action for back button if needed
                 } label: {
-                    Image(systemName: "chevron.left")
+                    Image(systemName: "")
                         .resizable()
                         .scaledToFit()
                         .fontWeight(.heavy)
