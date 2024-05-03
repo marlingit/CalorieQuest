@@ -11,7 +11,7 @@ struct ActivityRingView: View {
     var progress: CGFloat
 
     @AppStorage("calorieTarget") var calorieTarget: String = "1"
-    @AppStorage("caloriesCurrent") var caloriesCurrent: String = "1400"
+    @AppStorage("caloriesCurrent") var caloriesCurrent: String = "0"
     
     @State var progressPercentage: CGFloat = 0
     
