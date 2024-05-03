@@ -2,7 +2,8 @@
 //  DatabaseCreation.swift
 //  CalorieQuest
 //
-//  Created by Marlin on 4/30/24.
+//  Created by Group 11: Vijay Vadi, Brighton Young, and Marlin Spears.
+//  Copyright © 2024 Vijay, Brighton, and Marlin. All rights reserved.
 //
 
 import SwiftData

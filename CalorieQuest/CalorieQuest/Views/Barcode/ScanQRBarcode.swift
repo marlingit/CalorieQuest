@@ -2,8 +2,8 @@
 //  ScanQRBarcode.swift
 //  Barcode
 //
-//  Created by Osman Balci on 2/11/24.
-//  Copyright © 2024 Osman Balci. All rights reserved.
+//  Created by Group 11: Vijay Vadi, Brighton Young, and Marlin Spears.
+//  Copyright © 2024 Vijay, Brighton, and Marlin. All rights reserved.
 //
 
 import SwiftUI

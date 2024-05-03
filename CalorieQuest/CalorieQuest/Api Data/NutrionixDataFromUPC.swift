@@ -2,8 +2,8 @@
 //  NutritionixApiData.swift
 //  Barcode
 //
-//  Created by Brighton Young on 4/30/24 and Osman Balci.
-//  Copyright © 2024 Brighton Young. All rights reserved.
+//  Created by Group 11: Vijay Vadi, Brighton Young, and Marlin Spears.
+//  Copyright © 2024 Vijay, Brighton, and Marlin. All rights reserved.
 //
 
 import Foundation

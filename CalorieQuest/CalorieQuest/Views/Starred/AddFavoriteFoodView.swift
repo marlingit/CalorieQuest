@@ -2,8 +2,8 @@
 //  AddFavoriteFoodView.swift
 //  CalorieQuest
 //
-//  Created by Vijay Vadi on 5/2/24.
-//  Copyright © 2024 Marlin Spears. All rights reserved.
+//  Created by Group 11: Vijay Vadi, Brighton Young, and Marlin Spears.
+//  Copyright © 2024 Vijay, Brighton, and Marlin. All rights reserved.
 //
 
 import SwiftUI
@@ -108,6 +108,8 @@ struct AddFavoriteFoodView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
+
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -136,6 +138,8 @@ struct AddFavoriteFoodView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
+
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)
@@ -150,6 +154,8 @@ struct AddFavoriteFoodView: View {
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
                             .padding(.top, 8)
+                            .keyboardType(.decimalPad)
+
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 24)

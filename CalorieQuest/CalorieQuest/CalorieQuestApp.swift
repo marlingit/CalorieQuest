@@ -1,8 +1,24 @@
+/*
+**********************************************************
+*   Statement of Compliance with the Stated Honor Code   *
+**********************************************************
+I hereby declare on my honor and I affirm that
+ 
+ (1) I have not given or received any unauthorized help on this assignment, and
+ (2) All work is my own in this assignment.
+ 
+I am hereby writing my name as my signature to declare that the above statements are true:
+   
+      Vijay Vadi, Brighton Young, and Marlin Spears
+ 
+**********************************************************
+ */
 //
 //  CalorieQuestApp.swift
 //  CalorieQuest
 //
-//  Created by Vijay Vadi on 4/29/24.
+//  Created by Group 11: Vijay Vadi, Brighton Young, and Marlin Spears.
+//  Copyright © 2024 Vijay, Brighton, and Marlin. All rights reserved.
 //
 
 import SwiftUI

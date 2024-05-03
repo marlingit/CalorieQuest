@@ -2,7 +2,8 @@
 //  SettingsView.swift
 //  CalorieQuest
 //
-//  Created by Vijay Vadi on 5/1/24.
+//  Created by Group 11: Vijay Vadi, Brighton Young, and Marlin Spears.
+//  Copyright © 2024 Vijay, Brighton, and Marlin. All rights reserved.
 //
 
 import SwiftUI
