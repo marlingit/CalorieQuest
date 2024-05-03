@@ -86,6 +86,8 @@ public func createDatabase() {
          |   Tracked Object Creation   |
          ===============================
          */
+        
+        var listOfTrackedObjects = [Tracked]()
 
         for aTracked in aDayStruct.tracked {
 
@@ -100,16 +102,17 @@ public func createDatabase() {
             // ❎ Insert it into the database context
             modelContext.insert(newTracked)
 
-            newDay.tracked!.append(newTracked)    // One Day can contain many Trackeds
+            listOfTrackedObjects.append(newTracked)    // One Day can contain many Trackeds
             
             /*
              ============================
              |   Food Object Creation   |
              ============================
              */
+            
+            var listOfAllFoodObjects = [Food]()
 
             for aFood in aTracked.foods {
-                print(aFood.name)
                 
                 let newFood = Food(
                     name: aFood.name,
@@ -122,13 +125,15 @@ public func createDatabase() {
                 
                 modelContext.insert(newFood)
                 
-                newTracked.foods!.append(newFood)
+                listOfAllFoodObjects.append(newFood)
                 
                 /*
                  ================================
                  |   Nutrient Object Creation   |
                  ================================
                  */
+                
+                var listOfAllNutrientObjects = [Nutrient]()
 
                 for aNutrient in aFood.nutrients {
 
@@ -142,18 +147,23 @@ public func createDatabase() {
                     )
                     
                     // ❎ Insert it into the database context
-                    modelContext.insert(newFood)
+                    modelContext.insert(newNutrient)
                     
                     newNutrient.foods!.append(newFood)  // Many Nutrients can be in many Foods
 
-                    newFood.nutrients!.append(newNutrient)    // Many Foods can contain many Nutrients
+                    listOfAllNutrientObjects.append(newNutrient)    // Many Foods can contain many Nutrients
                     
                 }   // End of 'for aNutrient in aFood.nutrients' loop
                 
-                print(newFood.name)
+                newFood.nutrients = listOfAllNutrientObjects
+                
             }   // End of 'for aFood in aTracked.foods' loop
             
+            newTracked.foods = listOfAllFoodObjects
+            
         }   // End of 'for aTracked in aDayStruct.tracked' loop
+        
+        newDay.tracked = listOfTrackedObjects
         
     }   // End of 'for aDayStruct in arrayOfDayStructs' loop
     

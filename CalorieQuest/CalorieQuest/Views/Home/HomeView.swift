@@ -10,9 +10,6 @@ import SwiftData
 
 struct HomeView: View {
     
-    @Environment(\.modelContext) private var modelContext
-    @Query(FetchDescriptor<Day>(sortBy: [SortDescriptor(\Day.date, order: .forward)])) private var listOfAllDaysInDatabase: [Day]
-    
     @AppStorage("firstname") var firstName: String = "Vijay"
     
     @AppStorage("calorieTarget") var calorieTarget: String = ""
@@ -21,7 +18,12 @@ struct HomeView: View {
     @Binding var profileBottomSheetActive: Bool
     @Binding var trackBottomSheetActive: Bool
     
+    @Environment(\.modelContext) private var modelContext
+    @Query(FetchDescriptor<Day>(sortBy: [SortDescriptor(\Day.date, order: .forward)])) private var listOfAllDaysInDatabase: [Day]
+    
     @State private var currentDate = Date()
+    
+    @State private var currentDay = Day(date: "", tracked: [Tracked]())
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -167,6 +169,7 @@ struct HomeView: View {
                         HStack {
                             Button(action: {
                                 currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate) ?? currentDate
+                                currentDay = getDay()
                             }) {
                                 Image(systemName: "arrow.left")
                                     .font(.system(size: 24))
@@ -186,6 +189,7 @@ struct HomeView: View {
                                         if tomorrow <= Date() {
                                             currentDate = tomorrow
                                         }
+                                        currentDay = getDay()
                                     }) {
                                         Image(systemName: "arrow.right")
                                             .font(.system(size: 24))
@@ -197,14 +201,23 @@ struct HomeView: View {
                         }
                         .padding()
                         
-                        Text("No data available")
+                        if currentDay.date == "" {
+                            Text("No data available")
+                                .foregroundStyle(.black)
+                                .font(.custom("Urbanist", size: 18))
+                                .fontWeight(.heavy)
+                                .multilineTextAlignment(.leading)
+                                .padding(.top, 12)
+                                .padding(.bottom, 24)
+                        } else {
+                            historyView
                             .foregroundStyle(.black)
                             .font(.custom("Urbanist", size: 18))
                             .fontWeight(.heavy)
                             .multilineTextAlignment(.leading)
                             .padding(.top, 12)
                             .padding(.bottom, 24)
-                        
+                        }
                     }
                     .frame(maxWidth: .infinity)
                     .background(Color.gray.opacity(0.2))
@@ -217,6 +230,47 @@ struct HomeView: View {
                     .padding(.top, 24)
                 
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+    }
+    
+    func getDay() -> Day {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        if let day = listOfAllDaysInDatabase.first(where: { $0.date == dateFormatter.string(from: currentDate) }) {
+            return day
+        }
+        
+        
+        return Day(date: "", tracked: [Tracked]())
+    }
+    
+    var historyView: some View {
+        
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 1
+        
+        
+        
+        return LazyVStack {
+            ForEach(currentDay.tracked!.sorted(by: { $0.time < $1.time }), id: \.self) { aTracked in
+                Text(aTracked.time)
+                VStack {
+                    Text(aTracked.category)
+                    
+                    LazyVStack {
+                        ForEach(aTracked.foods!, id: \.self) { aFood in
+                            HStack {
+                                Text(aFood.name)
+                                if let cal = aFood.nutrients!.first(where: { $0.name.lowercased() == "calories"}) {
+                                    Text("\(formatter.string(from: cal.amount as NSNumber) ?? "0.0") \(cal.unit)")
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

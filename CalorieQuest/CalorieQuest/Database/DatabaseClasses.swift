@@ -15,7 +15,7 @@ final class Day {
     
     @Relationship(deleteRule: .nullify) var tracked: [Tracked]?
     
-    init(date: String, tracked: [Tracked]) {
+    init(date: String, tracked: [Tracked]? = nil) {
         self.date = date
         self.tracked = tracked
     }
@@ -29,7 +29,7 @@ final class Tracked {
     
     @Relationship(deleteRule: .nullify) var foods: [Food]?
     
-    init(category: String, time: String, foods: [Food]) {
+    init(category: String, time: String, foods: [Food]? = nil) {
         self.category = category
         self.time = time
         self.foods = foods
@@ -45,7 +45,7 @@ final class Food {
     var servingUnit: String
     @Relationship(deleteRule: .nullify) var nutrients: [Nutrient]?
     
-    init(name: String, itemId: String, imageUrl: String, servingSize: Double, servingUnit: String, nutrients: [Nutrient]) {
+    init(name: String, itemId: String, imageUrl: String, servingSize: Double, servingUnit: String, nutrients: [Nutrient]? = nil) {
         self.name = name
         self.itemId = itemId
         self.imageUrl = imageUrl

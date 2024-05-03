@@ -10,20 +10,14 @@ import Foundation
 struct DayStruct: Decodable, Encodable {
     
     var date: String
-    var tracked: [TrackedStruct]
+    var tracked = [TrackedStruct]()
 }
 
 struct TrackedStruct: Decodable, Encodable {
     
     var category: String
     var time: String
-    var foods: [FoodStruct]
-}
-
-struct MealStruct: Decodable, Encodable {
-    
-    var name: String
-    var foods: [FoodStruct]
+    var foods = [FoodStruct]()
 }
 
 struct FoodStruct: Decodable, Encodable {
@@ -33,7 +27,7 @@ struct FoodStruct: Decodable, Encodable {
     var imageUrl: String
     var servingSize: Double
     var servingUnit: String
-    var nutrients: [NutrientStruct]
+    var nutrients = [NutrientStruct]()
 }
 
 struct NutrientStruct: Decodable, Encodable {
