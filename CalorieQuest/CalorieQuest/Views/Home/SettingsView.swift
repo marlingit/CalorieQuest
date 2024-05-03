@@ -111,9 +111,11 @@ struct SettingsView: View {
                     .padding(.top, 24)
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("Height (inches")
+                        Text("Height (inches)")
                             .font(.system(size: 18))
                             .fontWeight(.heavy)
+                        
+                        
                         
                         
                         TextField("Height in inches", text: $height)

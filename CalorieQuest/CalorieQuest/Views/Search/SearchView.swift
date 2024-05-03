@@ -87,7 +87,7 @@ struct SearchView: View {
                                 searchDB()
                                 if databaseSearchResults.count == 0 {
                                     alertTitle = "No Results"
-                                    alertMessage = "No food items found for the given search query \(searchQuery)."
+                                    alertMessage = "No food items found for the given search query."
                                     showAlertMessage = true // Show the alert
                                 } else {
                                     showDatabaseSearchResults = true
@@ -98,7 +98,7 @@ struct SearchView: View {
                                 
                                 if foodArray.isEmpty {
                                     alertTitle = "No Results"
-                                    alertMessage = "No food items found for the given search query \(searchQuery)."
+                                    alertMessage = "No food items found for the given search query."
                                     showAlertMessage = true
                                 } else {
                                     showApiSearchResults = true

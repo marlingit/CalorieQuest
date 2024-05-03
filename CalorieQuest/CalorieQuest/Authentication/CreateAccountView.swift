@@ -33,33 +33,6 @@ struct CreateAccountView: View {
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-    /*
-     private func makeAttributedString() -> AttributedString {
-     var text = AttributedString("By creating an account, you agree to our\nPrivacy Policy and Terms of Service.")
-     
-     if let privacyRange = text.range(of: "Privacy Policy") {
-     text[privacyRange].foregroundColor = .blue
-     text[privacyRange].link = URL(string: "https://www.quickparksolutions.com")
-     }
-     
-     if let termsRange = text.range(of: "Terms of Service") {
-     text[termsRange].foregroundColor = .blue
-     text[termsRange].link = URL(string: "https://www.quickparksolutions.com")
-     }
-     
-     return text
-     }
-     
-     private func makeAttributedString2() -> AttributedString {
-     var text = AttributedString("Already have an Account?\nLogin Instead")
-     
-     if let privacyRange = text.range(of: "Login Instead") {
-     text[privacyRange].foregroundColor = .blue
-     }
-     
-     return text
-     }
-     */
 }
 
 struct OnboardingOne: View {
@@ -175,7 +148,6 @@ struct OnboardingOne: View {
                             .frame(width: 150, height: 50)
                             .background(firstname.isEmpty || lastname.isEmpty ? Color.black.opacity(0.5) : Color.black, in: RoundedRectangle(cornerRadius: 50))
                     }.padding(.top, 24)
-                    //  .disabled(firstname.isEmpty || lastname.isEmpty ? true : false)
                     
                     Spacer()
                 }
@@ -188,32 +160,10 @@ struct OnboardingOne: View {
                         .padding(.top, 12)
                 }
                 
-                /*
-                 HStack(spacing: 0) {
-                 Text(makeAttributedString())
-                 .foregroundStyle(.black)
-                 .font(.system(size: 12))
-                 .fontWeight(.bold)
-                 .lineSpacing(4)
-                 
-                 Spacer()
-                 }
-                 .padding(.top, 18)
-                 */
                 Spacer()
             }.padding(.leading, 22)
                 .padding(.top, 48)
                 .padding(.trailing, 74)
-            /*
-             Text(makeAttributedString2())
-             .foregroundStyle(.black)
-             .multilineTextAlignment(.center)
-             .font(.system(size: 16))
-             .fontWeight(.bold)
-             .lineSpacing(4)
-             .frame(maxWidth: .infinity)
-             .padding(.bottom, 12)
-             */
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
@@ -233,6 +183,7 @@ struct OnboardingTwo: View {
     @State private var weightTextFieldEditingActive = false
     
     @State private var missingFieldAlertVisible = false
+    @State private var invalidInputAlertVisible = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -273,11 +224,13 @@ struct OnboardingTwo: View {
                                 withAnimation {
                                     heightFeetTextFieldEditingActive = true
                                     missingFieldAlertVisible = false
+                                    invalidInputAlertVisible = false
                                 }
                             } else {
                                 withAnimation {
                                     heightFeetTextFieldEditingActive = false
                                     missingFieldAlertVisible = false
+                                    invalidInputAlertVisible = false
                                 }
                             }
                         })
@@ -287,6 +240,7 @@ struct OnboardingTwo: View {
                         .fontWeight(.bold)
                         .padding(.leading, 2)
                         .padding(.trailing, 12)
+                        .keyboardType(.numberPad)
                         
                         Rectangle()
                             .foregroundColor(.black)
@@ -301,11 +255,13 @@ struct OnboardingTwo: View {
                                 withAnimation {
                                     heightInchesTextFieldEditingActive = true
                                     missingFieldAlertVisible = false
+                                    invalidInputAlertVisible = false
                                 }
                             } else {
                                 withAnimation {
                                     heightInchesTextFieldEditingActive = false
                                     missingFieldAlertVisible = false
+                                    invalidInputAlertVisible = false
                                 }
                             }
                         })
@@ -315,6 +271,7 @@ struct OnboardingTwo: View {
                         .fontWeight(.bold)
                         .padding(.leading, 2)
                         .padding(.trailing, 12)
+                        .keyboardType(.numberPad)
                         
                         Rectangle()
                             .foregroundColor(.black)
@@ -330,11 +287,13 @@ struct OnboardingTwo: View {
                             withAnimation {
                                 weightTextFieldEditingActive = true
                                 missingFieldAlertVisible = false
+                                invalidInputAlertVisible = false
                             }
                         } else {
                             withAnimation {
                                 weightTextFieldEditingActive = false
                                 missingFieldAlertVisible = false
+                                invalidInputAlertVisible = false
                             }
                         }
                     })
@@ -344,6 +303,7 @@ struct OnboardingTwo: View {
                     .fontWeight(.bold)
                     .padding(.leading, 2)
                     .padding(.trailing, 12)
+                    .keyboardType(.numberPad)
                     
                     Rectangle()
                         .foregroundColor(.black)
@@ -356,17 +316,20 @@ struct OnboardingTwo: View {
                 HStack(spacing: 0) {
                     Button {
                         missingFieldAlertVisible = false
+                        invalidInputAlertVisible = false
                         
                         if heightFeet.isEmpty || heightInches.isEmpty || weight.isEmpty {
                             missingFieldAlertVisible = true
-                        } else {
-                            let heightInches = Int(heightFeet)! * 12 + Int(heightInches)!
+                        } else if let heightFeetValue = Int(heightFeet), let heightInchesValue = Int(heightInches), let weightValue = Int(weight) {
+                            let heightInches = heightFeetValue * 12 + heightInchesValue
                             UserDefaults.standard.set(heightInches, forKey: "height")
-                            UserDefaults.standard.set(weight, forKey: "weight")
+                            UserDefaults.standard.set(weightValue, forKey: "weight")
                             
                             withAnimation() {
                                 pagenumber = 3
                             }
+                        } else {
+                            invalidInputAlertVisible = true
                         }
                     } label: {
                         Text("Continue")
@@ -382,6 +345,14 @@ struct OnboardingTwo: View {
                 
                 if missingFieldAlertVisible {
                     Text("Height and Weight text fields required.")
+                        .foregroundStyle(.red)
+                        .font(.custom("Urbanist", size: 18))
+                        .fontWeight(.bold)
+                        .padding(.top, 12)
+                }
+                
+                if invalidInputAlertVisible {
+                    Text("Please enter valid numeric values for Height and Weight.")
                         .foregroundStyle(.red)
                         .font(.custom("Urbanist", size: 18))
                         .fontWeight(.bold)
@@ -427,12 +398,6 @@ struct OnboardingThree: View {
                     .padding(.top, 24)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text("Here's what to do.")
-                    .foregroundStyle(.black)
-                    .font(.system(size: 22))
-                    .fontWeight(.bold)
-                    .padding(.top, 8)
-                    .frame(maxWidth: .infinity, alignment: .leading)
             }.padding(.leading, 22)
             
             VStack(spacing: 0) {
@@ -450,37 +415,14 @@ struct OnboardingThree: View {
                             .frame(width: 150, height: 50)
                             .background(Color.black, in: RoundedRectangle(cornerRadius: 50))
                     }.padding(.top, 24)
-                    //  .disabled(firstname.isEmpty || lastname.isEmpty ? true : false)
                     
                     Spacer()
                 }
                 
-                /*
-                 HStack(spacing: 0) {
-                 Text(makeAttributedString())
-                 .foregroundStyle(.black)
-                 .font(.system(size: 12))
-                 .fontWeight(.bold)
-                 .lineSpacing(4)
-                 
-                 Spacer()
-                 }
-                 .padding(.top, 18)
-                 */
                 Spacer()
             }.padding(.leading, 22)
                 .padding(.top, 48)
                 .padding(.trailing, 74)
-            /*
-             Text(makeAttributedString2())
-             .foregroundStyle(.black)
-             .multilineTextAlignment(.center)
-             .font(.system(size: 16))
-             .fontWeight(.bold)
-             .lineSpacing(4)
-             .frame(maxWidth: .infinity)
-             .padding(.bottom, 12)
-             */
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
