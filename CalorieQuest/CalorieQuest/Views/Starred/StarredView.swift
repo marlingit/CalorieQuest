@@ -67,37 +67,39 @@ struct StarredView: View {
             NavigationStack {
                 List {
                     ForEach(listOfAllFoodsInDatabase) { aFood in
-                        Button {
-                            withAnimation() {
-                                detailsViewSelected = 8
-                                sheetActive = true
-                            }
-                            food = aFood
-                        } label: {
-                            FoodItem(food: aFood)
-                                .alert(isPresented: $showConfirmation) {
-                                    Alert(title: Text("Delete Confirmation"),
-                                          message: Text("Are you sure to permanently delete the food? It cannot be undone."),
-                                          primaryButton: .destructive(Text("Delete")) {
-                                        /*
-                                        'toBeDeleted (IndexSet).first' is an unsafe pointer to the index number of the array
-                                         element to be deleted. It is nil if the array is empty. Process it as an optional.
-                                        */
-                                        if let index = toBeDeleted?.first {
-                                           
-                                            let foodToDelete = listOfAllFoodsInDatabase[index]
-                                            
-                                            // ❎ Delete selected Trip object from the database
-                                            modelContext.delete(foodToDelete)
+                        if aFood.imageUrl != "" {
+                            Button {
+                                withAnimation() {
+                                    detailsViewSelected = 8
+                                    sheetActive = true
+                                }
+                                food = aFood
+                            } label: {
+                                FoodItem(food: aFood)
+                                    .alert(isPresented: $showConfirmation) {
+                                        Alert(title: Text("Delete Confirmation"),
+                                              message: Text("Are you sure to permanently delete the food? It cannot be undone."),
+                                              primaryButton: .destructive(Text("Delete")) {
+                                            /*
+                                             'toBeDeleted (IndexSet).first' is an unsafe pointer to the index number of the array
+                                             element to be deleted. It is nil if the array is empty. Process it as an optional.
+                                             */
+                                            if let index = toBeDeleted?.first {
+                                                
+                                                let foodToDelete = listOfAllFoodsInDatabase[index]
+                                                
+                                                // ❎ Delete selected Trip object from the database
+                                                modelContext.delete(foodToDelete)
+                                            }
+                                            toBeDeleted = nil
+                                        }, secondaryButton: .cancel() {
+                                            toBeDeleted = nil
                                         }
-                                        toBeDeleted = nil
-                                    }, secondaryButton: .cancel() {
-                                        toBeDeleted = nil
-                                    }
-                                )
-                            }   // End of alert
+                                        )
+                                    }   // End of alert
+                            }
+                            .foregroundStyle(.black)
                         }
-                        .foregroundStyle(.black)
                         
                     }
                     .onDelete(perform: delete)
