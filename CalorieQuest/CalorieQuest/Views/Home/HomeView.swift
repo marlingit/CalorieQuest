@@ -18,7 +18,7 @@ struct HomeView: View {
     @Binding var detailsViewSelected: Int
     @Binding var sheetActive: Bool
     
-    @State private var caloriesCurrent = ""
+    @AppStorage("caloriesCurrent") var caloriesCurrent: String = "0"
     
     var lastResetDate: Date {
         guard !lastResetDateString.isEmpty else {
@@ -303,7 +303,6 @@ struct HomeView: View {
         
         
         return LazyVStack {
-            Text(calcCurrent())
             ForEach(currentDay.tracked!.sorted(by: { $0.time < $1.time }), id: \.self) { aTracked in
                 Text(aTracked.time)
                 VStack {
