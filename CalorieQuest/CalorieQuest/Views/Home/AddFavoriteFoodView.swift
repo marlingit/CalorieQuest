@@ -1,25 +1,16 @@
-//
-//  AddFavoriteFoodView.swift
-//  CalorieQuest
-//
-//  Created by Vijay Vadi on 5/2/24.
-//  Copyright © 2024 Marlin Spears. All rights reserved.
-//
-
 import SwiftUI
 
 struct AddFavoriteFoodView: View {
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     
     @Binding var detailsViewSelected: Int
     @Binding var sheetActive: Bool
     
-    @State var foodName: String = "" 
+    @State var foodName: String = ""
     @State var calories: String = ""
-    
     @State var fat: String = ""
     @State var carbohydrates: String = ""
-    
-    @State private var selectedDate = Date()
     
     //------------------------------------
     // Image Picker from Camera or Library
@@ -30,6 +21,10 @@ struct AddFavoriteFoodView: View {
     
     @State private var useCamera = false
     @State private var usePhotoLibrary = true
+    
+    @State private var showAlertMessage = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
     
     var body: some View {
         VStack(spacing: 0) {
@@ -184,7 +179,17 @@ struct AddFavoriteFoodView: View {
                         Spacer()
                         
                         Button {
-                            
+                            if isValidated() {
+                                saveFavoriteFood()
+                                
+                                showAlertMessage = true
+                                alertTitle = "New Favorite Food Saved!"
+                                alertMessage = "Your new favorite food is successfully saved!"
+                            } else {
+                                showAlertMessage = true
+                                alertTitle = "Incorrect Data!"
+                                alertMessage = "Please ensure all fields are filled correctly!"
+                            }
                         } label: {
                             Text("Add Food")
                                 .font(.system(size: 18))
@@ -193,6 +198,16 @@ struct AddFavoriteFoodView: View {
                                 .padding()
                                 .background(Color.black, in: RoundedRectangle(cornerRadius: 25))
                         }
+                        .alert(alertTitle, isPresented: $showAlertMessage, actions: {
+                            Button("OK") {
+                                if alertTitle == "New Favorite Food Saved!" {
+                                    // Dismiss this view and go back to the previous view
+                                    dismiss()
+                                }
+                            }
+                        }, message: {
+                            Text(alertMessage)
+                        })
                         
                         Spacer()
                         
@@ -209,27 +224,10 @@ struct AddFavoriteFoodView: View {
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .onChange(of: pickedUIImage) {
                 guard let uiImagePicked = pickedUIImage else { return }
-                
                 // Convert UIImage to SwiftUI Image
                 pickedImage = Image(uiImage: uiImagePicked)
             }
             .sheet(isPresented: $showImagePicker) {
-                /*
-                 For storage and performance efficiency reasons, we scale down the photo image selected from the
-                 photo library or taken by the camera to a smaller size with imageWidth and imageHeight in points.
-                 
-                 For retina displays, 1 point = 3 pixels
-                 
-                 // Example: For HD aspect ratio of 16:9
-                 width  = 500.00 points --> 1500.00 pixels
-                 height = 281.25 points -->  843.75 pixels
-                 
-                 500/281.25 = 16/9 = 1500.00/843.75 = HD aspect ratio
-                 
-                 imageWidth =  500.0 points and imageHeight = 281.25 points will produce an image with
-                 imageWidth = 1500.0 pixels and imageHeight = 843.75 pixels which is about 600 KB in JPG format.
-                 */
-                
                 ImagePicker(
                     uiImage: $pickedUIImage,
                     sourceType: useCamera ? .camera : .photoLibrary,
@@ -237,5 +235,68 @@ struct AddFavoriteFoodView: View {
                     imageHeight: 281.25
                 )
             }
+    }
+    
+    func isValidated() -> Bool {
+        if foodName.isEmpty || calories.isEmpty || fat.isEmpty || carbohydrates.isEmpty {
+            return false
+        }
+        
+        if Double(calories) == nil || Double(fat) == nil || Double(carbohydrates) == nil {
+            return false
+        }
+        
+        return true
+    }
+    
+    func saveFavoriteFood() {
+        //--------------------------------------------------
+        // Store Taken or Picked Food Image to Document Directory
+        //--------------------------------------------------
+        var photoFullFilename = ""
+        
+        if let photoData = pickedUIImage {
+            photoFullFilename = UUID().uuidString + ".jpg"
+            if let jpegData = photoData.jpegData(compressionQuality: 1.0) {
+                let fileUrl = documentDirectory.appendingPathComponent(photoFullFilename)
+                try? jpegData.write(to: fileUrl)
+            }
+        }
+        
+        //-----------------------------------------------
+        // Instantiate a new Food object and dress it up
+        //-----------------------------------------------
+        let newFood = Food(
+            name: foodName,
+            itemId: UUID().uuidString,
+            imageUrl: photoFullFilename,
+            servingSize: 0.0,
+            servingUnit: ""
+        )
+        
+        // Create and add nutrient objects to the food
+        let caloriesNutrient = Nutrient(name: "calories", amount: Double(calories) ?? 0.0, unit: "kcal")
+        let fatNutrient = Nutrient(name: "fat", amount: Double(fat) ?? 0.0, unit: "g")
+        let carbohydratesNutrient = Nutrient(name: "carbohydrates", amount: Double(carbohydrates) ?? 0.0, unit: "g")
+        
+        newFood.nutrients = [caloriesNutrient, fatNutrient, carbohydratesNutrient]
+        
+        // Insert the new Food object into the database
+        modelContext.insert(newFood)
+        
+        // Save the changes to the database
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to save food: \(error)")
+        }
+        
+        // Initialize @State variables
+        showImagePicker = false
+        pickedUIImage = nil
+        foodName = ""
+        calories = ""
+        fat = ""
+        carbohydrates = ""
     }
 }
