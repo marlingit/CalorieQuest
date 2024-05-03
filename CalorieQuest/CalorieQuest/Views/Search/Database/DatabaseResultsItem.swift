@@ -12,11 +12,18 @@ struct DatabaseResultsItem: View {
     let food: Food
     var body: some View {
         HStack {
-            getImageFromUrl(url: food.imageUrl, defaultFilename: "ImageUnavailable")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100.0, height: 75.0)
-            
+            if food.imageFilename != nil {
+                getImageFromDocumentDirectory(filename: food.imageFilename!.components(separatedBy: ".")[0], fileExtension: food.imageFilename!.components(separatedBy: ".")[1], defaultFilename: "ImageUnavailable")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100.0, height: 75.0)
+            } else if food.imageUrl != "" {
+                getImageFromUrl(url: food.imageUrl, defaultFilename: "ImageUnavailable")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100.0, height: 75.0)
+            }
+           
             VStack(alignment: .leading) {
                 Text(food.name.components(separatedBy: " ")
                     .map { $0.capitalized }

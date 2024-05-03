@@ -15,11 +15,19 @@ struct FoodItem: View {
         formatter.maximumFractionDigits = 1
         
         return HStack(spacing: 0) {
-            getImageFromUrl(url: food.imageUrl, defaultFilename: "ImageUnavailable")
-                .resizable()
-                .frame(width: 100, height: 75)
-                .mask(RoundedRectangle(cornerRadius: 12))
-                .background(Color.black.opacity(0.25).mask(RoundedRectangle(cornerRadius: 12)))
+            if food.imageFilename != nil {
+                getImageFromDocumentDirectory(filename: food.imageFilename!.components(separatedBy: ".")[0], fileExtension: food.imageFilename!.components(separatedBy: ".")[1], defaultFilename: "ImageUnavailable")
+                    .resizable()
+                    .frame(width: 100, height: 75)
+                    .mask(RoundedRectangle(cornerRadius: 12))
+                    .background(Color.black.opacity(0.25).mask(RoundedRectangle(cornerRadius: 12)))
+            } else {
+                getImageFromUrl(url: food.imageUrl, defaultFilename: "ImageUnavailable")
+                    .resizable()
+                    .frame(width: 100, height: 75)
+                    .mask(RoundedRectangle(cornerRadius: 12))
+                    .background(Color.black.opacity(0.25).mask(RoundedRectangle(cornerRadius: 12)))
+            }
             
             VStack(alignment: .leading, spacing: 0) {
                 Text(food.name)

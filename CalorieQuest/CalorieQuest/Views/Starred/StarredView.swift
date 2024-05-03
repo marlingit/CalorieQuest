@@ -67,7 +67,7 @@ struct StarredView: View {
             NavigationStack {
                 List {
                     ForEach(listOfAllFoodsInDatabase) { aFood in
-                        if aFood.imageUrl != "" {
+                        if aFood.imageFilename != nil || aFood.imageUrl != "" {
                             Button {
                                 withAnimation() {
                                     detailsViewSelected = 8

@@ -26,6 +26,7 @@ struct AddManuallyView: View {
     @State var cholesterol: String = ""
     @State var sodium: String = ""
     @State var carbohydrates: String = ""
+    @State var protein: String = ""
     
     @State var selectedIndex = 0
     @State private var selectedDate = Date()
@@ -201,6 +202,21 @@ struct AddManuallyView: View {
                             .fontWeight(.heavy)
                         
                         TextField("Carbohydrates", text: $carbohydrates)
+                            .font(.system(size: 18))
+                            .padding()
+                            .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                            .padding(.top, 8)
+                            .keyboardType(.decimalPad)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 24)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Total Protein")
+                            .font(.system(size: 18))
+                            .fontWeight(.heavy)
+                        
+                        TextField("Protein", text: $protein)
                             .font(.system(size: 18))
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
@@ -390,12 +406,22 @@ struct AddManuallyView: View {
             
             carbNutrient.foods?.append(newFood)
             
+            let proNutrient = Nutrient(
+                name: "protein",
+                amount: Double(protein)!,
+                unit: "g",
+                foods: [Food]()
+            )
+            
+            proNutrient.foods?.append(newFood)
+            
             newFood.nutrients?.append(calNutrient)
             newFood.nutrients?.append(fatNutrient)
             newFood.nutrients?.append(satFatNutrient)
             newFood.nutrients?.append(cholesNutrient)
             newFood.nutrients?.append(sodiumNutrient)
-            newFood.nutrients?.append(calNutrient)
+            newFood.nutrients?.append(carbNutrient)
+            newFood.nutrients?.append(proNutrient)
         } else {
             let day = dayArray[0]
             
@@ -472,12 +498,22 @@ struct AddManuallyView: View {
             
             carbNutrient.foods?.append(newFood)
             
+            let proNutrient = Nutrient(
+                name: "protein",
+                amount: Double(protein)!,
+                unit: "g",
+                foods: [Food]()
+            )
+            
+            proNutrient.foods?.append(newFood)
+            
             newFood.nutrients?.append(calNutrient)
             newFood.nutrients?.append(fatNutrient)
             newFood.nutrients?.append(satFatNutrient)
             newFood.nutrients?.append(cholesNutrient)
             newFood.nutrients?.append(sodiumNutrient)
-            newFood.nutrients?.append(calNutrient)
+            newFood.nutrients?.append(carbNutrient)
+            newFood.nutrients?.append(proNutrient)
         }
         
         var totalCaloriesConsumed: Double = 0.0

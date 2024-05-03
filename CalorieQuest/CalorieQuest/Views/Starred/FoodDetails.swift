@@ -51,13 +51,21 @@ struct FoodDetails: View {
                            Text("Food Item Image")
                                .font(.system(size: 18))
                                .fontWeight(.heavy)
-                           
-                           getImageFromUrl(url: food.imageUrl, defaultFilename: "ImageUnavailable")
-                               .resizable()
-                               .frame(width: 300, height: 175)
-                               .padding()
-                               .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
-                               .padding(.top, 8)
+                           if food.imageFilename != nil {
+                               getImageFromDocumentDirectory(filename: food.imageFilename!.components(separatedBy: ".")[0], fileExtension: food.imageFilename!.components(separatedBy: ".")[1], defaultFilename: "ImageUnavailable")
+                                   .resizable()
+                                   .frame(width: 300, height: 175)
+                                   .padding()
+                                   .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                   .padding(.top, 8)
+                           } else {
+                               getImageFromUrl(url: food.imageUrl, defaultFilename: "ImageUnavailable")
+                                   .resizable()
+                                   .frame(width: 300, height: 175)
+                                   .padding()
+                                   .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
+                                   .padding(.top, 8)
+                           }
                        }
                        .frame(maxWidth: .infinity, alignment: .leading)
                        
