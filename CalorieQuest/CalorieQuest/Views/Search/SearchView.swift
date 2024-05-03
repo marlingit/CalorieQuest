@@ -72,7 +72,7 @@ struct SearchView: View {
                             .font(.system(size: 18))
                             .fontWeight(.heavy)
                         
-                        TextField("Search", text: $searchFieldTextValue)
+                        TextField("Search by name", text: $searchFieldTextValue)
                             .font(.system(size: 18))
                             .padding()
                             .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 12))
