@@ -181,7 +181,7 @@ struct HomeView: View {
                         HStack {
                             Button(action: {
                                 currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate) ?? currentDate
-                                currentDay = getDay()
+                                currentDay = getDay(aDate: currentDate)
                             }) {
                                 Image(systemName: "arrow.left")
                                     .font(.system(size: 24))
@@ -201,7 +201,7 @@ struct HomeView: View {
                                         if tomorrow <= Date() {
                                             currentDate = tomorrow
                                         }
-                                        currentDay = getDay()
+                                        currentDay = getDay(aDate: currentDate)
                                     }) {
                                         Image(systemName: "arrow.right")
                                             .font(.system(size: 24))
@@ -258,7 +258,7 @@ struct HomeView: View {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        if let day = listOfAllDaysInDatabase.first(where: { $0.date == dateFormatter.string(from: currentDate) }) {
+        if let day = listOfAllDaysInDatabase.first(where: { $0.date == dateFormatter.string(from: aDate) }) {
             return day
         }
         
